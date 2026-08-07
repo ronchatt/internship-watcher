@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+config.private.json
+state/
+seen_jobs*.json
+OPEN_ROLES.md
+TOP_PICKS.md
+PROGRAMS.md
+# private career files -- never publish (public repo)
+applications.md
+career-history.md
+writing-style.md
+voice-samples.md
+resumes/
+TOMORROW.md

@@ -1,0 +1,22 @@
+{
+  "filters": {
+    "priority_locations": [
+      "example city"
+    ]
+  },
+  "ranking": {
+    "preferred_companies": [
+      "Example Company"
+    ],
+    "preferred_locations": [
+      "example city"
+    ]
+  },
+  "profile": {
+    "us_citizen": null,
+    "holds_security_clearance": null,
+    "open_to_clearance": null,
+    "graduation_years_considered_relevant": [],
+    "gpa": null
+  }
+}

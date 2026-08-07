@@ -1,0 +1,4342 @@
+{
+  "filters": {
+    "title_keywords": [
+      "intern",
+      "internship",
+      "co-op",
+      "coop"
+    ],
+    "title_require_any": [
+      "software",
+      "develop",
+      "programmer",
+      "programming",
+      "backend",
+      "back-end",
+      "frontend",
+      "front-end",
+      "full stack",
+      "full-stack",
+      "web",
+      "mobile",
+      "ios",
+      "android",
+      "platform",
+      "infrastructure",
+      "cloud",
+      "distributed",
+      "systems",
+      "embedded",
+      "firmware",
+      "hardware",
+      "fpga",
+      "asic",
+      "electrical",
+      "computer engineer",
+      "computer architecture",
+      "microarchitecture",
+      "rtl",
+      "vlsi",
+      "soc",
+      "silicon",
+      "logic design",
+      "digital design",
+      "design verification",
+      "verification",
+      "verilog",
+      "systemverilog",
+      "uvm",
+      "semiconductor",
+      "pcb",
+      "electronics",
+      "avionics",
+      "real-time",
+      "mechatronics",
+      "sensor fusion",
+      "devops",
+      "sre",
+      "site reliability",
+      "network",
+      "database",
+      "compiler",
+      "graphics",
+      "game",
+      "security",
+      "cybersecurity",
+      "cyber",
+      "machine learning",
+      "deep learning",
+      "artificial intelligence",
+      "computer vision",
+      "natural language",
+      "nlp",
+      "llm",
+      "generative",
+      "data scien",
+      "data engineer",
+      "analytics",
+      "applied scien",
+      "research scien",
+      "research engineer",
+      "research",
+      "model",
+      "simulation",
+      "algorithm",
+      "optimization",
+      "robotics",
+      "perception",
+      "autonomy",
+      "autonomous",
+      "controls",
+      "signal",
+      "math",
+      "statistic",
+      "ai",
+      "ml",
+      "cv",
+      "hpc",
+      "technology",
+      "technical consultant",
+      "technology consultant",
+      "digital engineering",
+      "forward deployed",
+      "solutions engineer"
+    ],
+    "title_exclude": [
+      "phd",
+      "ph.d",
+      "doctoral",
+      "masters",
+      "master's",
+      "fy26",
+      "fy 26",
+      "sales & trading",
+      "sales trading",
+      "sales and trading",
+      "quant",
+      "trader",
+      "trading",
+      "winter 2027",
+      "fall 2027",
+      "winter co-op",
+      "fall co-op",
+      "winter internship",
+      "fall internship",
+      "- fall",
+      "(fall)",
+      "mechanical engineer",
+      "manufacturing engineer",
+      "civil engineer",
+      "chemical engineer",
+      "industrial engineer",
+      "process engineer",
+      "equipment engineer",
+      "materials engineer",
+      "business development",
+      "sales",
+      "marketing",
+      "recruitment",
+      "human resources",
+      "actuarial",
+      "supply chain",
+      "procurement",
+      "administrative",
+      "internal audit",
+      "internal controls",
+      "senior",
+      "sr.",
+      "director",
+      "principal",
+      "distinguished",
+      "vice president",
+      "fall intern",
+      "fall-spring",
+      "off-cycle",
+      "off cycle",
+      "3-month",
+      "3 month",
+      "6-month",
+      "6 month",
+      "12-month",
+      "12 month",
+      "2h university",
+      "graduation",
+      "thesis",
+      "diploma",
+      "skillbridge",
+      "military veteran",
+      "market development",
+      "business analytics",
+      "management consulting",
+      "business consulting",
+      "strategy consulting"
+    ],
+    "years": [
+      "2027"
+    ],
+    "location_exclude": [],
+    "clearance_keywords": [
+      "u.s. citizenship is required",
+      "us citizenship is required",
+      "security clearance",
+      "clearance",
+      "ts/sci",
+      "top secret",
+      "secret clearance",
+      "polygraph",
+      "u.s. citizen",
+      "us citizen",
+      "united states citizen",
+      "itar",
+      "doe q",
+      "public trust"
+    ],
+    "location_us_markers": [],
+    "reject_cycle_phrases": [
+      "summer 2026",
+      "summer 2025",
+      "summer 2024",
+      "fall 2026",
+      "spring 2026",
+      "winter 2026",
+      "2026 summer",
+      "fy26",
+      "fy 26",
+      "2026 intern",
+      "2026 internship",
+      "- 2026",
+      "(2026)"
+    ],
+    "priority_locations": []
+  },
+  "ranking": {
+    "role_weights": {
+      "embedded_firmware": 38,
+      "computer_architecture": 38,
+      "digital_design": 38,
+      "ai_ml": 36,
+      "software": 34,
+      "robotics_autonomy": 30,
+      "controls": 28,
+      "hardware_software": 28,
+      "technical_consulting": 28,
+      "technical_systems": 22
+    },
+    "role_profiles": {
+      "embedded_firmware": {"demonstrated_fit": 60, "strategic_value": 95},
+      "computer_architecture": {"demonstrated_fit": 35, "strategic_value": 100},
+      "digital_design": {"demonstrated_fit": 25, "strategic_value": 100},
+      "ai_ml": {"demonstrated_fit": 90, "strategic_value": 80},
+      "software": {"demonstrated_fit": 95, "strategic_value": 70},
+      "robotics_autonomy": {"demonstrated_fit": 75, "strategic_value": 95},
+      "controls": {"demonstrated_fit": 75, "strategic_value": 90},
+      "hardware_software": {"demonstrated_fit": 70, "strategic_value": 95},
+      "technical_consulting": {"demonstrated_fit": 85, "strategic_value": 85},
+      "technical_systems": {"demonstrated_fit": 85, "strategic_value": 80},
+      "platform_infrastructure": {"demonstrated_fit": 95, "strategic_value": 75},
+      "security_engineering": {"demonstrated_fit": 85, "strategic_value": 75},
+      "aerospace_flight_software": {"demonstrated_fit": 85, "strategic_value": 95}
+    },
+    "fit_growth_mix": {"demonstrated": 0.6, "strategic_growth": 0.4, "technical_points": 40},
+    "role_keywords": {
+      "embedded_firmware": ["embedded", "firmware", "real-time", "rtos", "device driver"],
+      "computer_architecture": ["computer architecture", "microarchitecture", "cpu", "gpu", "accelerator", "cache", "memory system"],
+      "digital_design": ["fpga", "asic", "rtl", "vlsi", "soc", "logic design", "digital design", "design verification", "systemverilog", "verilog", "uvm", "silicon"],
+      "ai_ml": ["machine learning", "deep learning", "artificial intelligence", "computer vision", "nlp", "llm", "ai", "ml"],
+      "software": ["software", "developer", "backend", "frontend", "full stack", "distributed systems", "infrastructure", "platform", "compiler"],
+      "robotics_autonomy": ["robotics", "robot", "autonomy", "autonomous", "perception", "sensor fusion"],
+      "controls": ["controls", "control systems", "guidance", "navigation"],
+      "hardware_software": ["hardware/software", "hardware-software", "systems integration", "electrical", "electronics", "pcb", "avionics", "computer engineering"],
+      "technical_consulting": ["technology consulting", "technical consultant", "digital engineering", "forward deployed", "solutions engineer", "technology advisory", "ai consultant", "cloud consultant"],
+      "technical_systems": ["systems engineer", "systems engineering", "simulation", "modeling", "test automation"],
+      "platform_infrastructure": ["platform", "infrastructure", "distributed systems", "kubernetes", "cloud", "developer productivity", "developer tools", "devops", "site reliability", "sre"],
+      "security_engineering": ["application security", "product security", "security engineering", "devsecops", "sast", "vulnerability", "secure software"],
+      "aerospace_flight_software": ["flight software", "gnc", "guidance navigation", "adcs", "cubesat", "satellite", "spacecraft", "avionics", "hardware-in-the-loop"]
+    },
+    "preferred_companies": [],
+    "preferred_company_bonus": 10,
+    "preferred_locations": [],
+    "location_weights": {"preferred_hub": 5, "other_us": 0},
+    "season_weights": {"summer_2027": 8, "spring_2027": 6, "ambiguous_2027": 3, "unknown": 0},
+    "tier_thresholds": {"high_priority": 45, "good_match": 25},
+    "compensation_hourly_bonuses": {"30": 0, "35": 2, "40": 4, "50": 6, "60": 8},
+    "startup": {
+      "base_bonus": 3,
+      "strategic_domain_bonus": 4,
+      "strategic_domain_keywords": ["embedded", "firmware", "fpga", "asic", "robotics", "autonomy", "aerospace", "spacecraft", "hardware", "semiconductor", "developer tools", "infrastructure", "edge computing"]
+    }
+  },
+  "profile": {},
+  "notifications": {
+    "strategy": "email_each_sweep_with_new_matches",
+    "notify_on_first_run": false,
+    "max_roles_per_email": 25
+  },
+  "source_policy": {
+    "must_cover": ["Roblox", "Boeing", "Capital One"],
+    "disabled_name_prefixes": ["Quant:", "Quant SPA:"],
+    "disabled_names": [
+      "Aquatic Capital", "Tudor Investment Group", "Blackedge Capital",
+      "Akuna Capital", "Hudson River Trading", "Optiver (US)",
+      "Optiver (Campus)", "Walleye (Quantic)", "TransMarket Group",
+      "Ansatz Capital", "HAP Capital", "Flow Traders", "IMC Trading",
+      "Tracker: sndsh404 Summer2027 (quant-heavy)",
+      "Tracker: NUFT Quant (auto-discovers open boards)"
+    ]
+  },
+  "firms": [
+    {
+      "name": "Roblox",
+      "ats": "roblox",
+      "url": "https://careers.roblox.com/jobs?page=1&pageSize=100",
+      "verified": true,
+      "critical": true,
+      "health_min_jobs": 1
+    },
+    {
+      "name": "Capital One",
+      "ats": "capitalone",
+      "url": "https://www.capitalonecareers.com/search-jobs/intern",
+      "max_pages": 40,
+      "verified": true,
+      "critical": true,
+      "health_min_jobs": 1
+    },
+    {
+      "name": "Guidehouse technical consulting",
+      "ats": "workday",
+      "host": "guidehouse.wd1.myworkdayjobs.com",
+      "tenant": "guidehouse",
+      "site": "External",
+      "locale": "en-US",
+      "search_text": "intern technology",
+      "verified": true,
+      "note": "Technical/AI/engineering consulting only; generic consulting is filtered by title"
+    },
+    {
+      "name": "Y Combinator startup internships",
+      "ats": "yc_internships",
+      "url": "https://www.ycombinator.com/internships",
+      "verified": true
+    },
+    {
+      "name": "Aquatic Capital",
+      "ats": "greenhouse",
+      "token": "aquaticcapitalmanagement",
+      "verified": true
+    },
+    {
+      "name": "Tudor Investment Group",
+      "ats": "greenhouse",
+      "token": "tudorgroup",
+      "verified": true
+    },
+    {
+      "name": "Blackedge Capital",
+      "ats": "greenhouse",
+      "token": "blackedgecapital",
+      "verified": true
+    },
+    {
+      "name": "Akuna Capital",
+      "ats": "greenhouse",
+      "token": "akunacapital",
+      "verified": true
+    },
+    {
+      "name": "Hudson River Trading",
+      "ats": "greenhouse",
+      "token": "wehrtyou",
+      "verified": true
+    },
+    {
+      "name": "Optiver (US)",
+      "ats": "greenhouse",
+      "token": "optiverus",
+      "verified": true
+    },
+    {
+      "name": "Optiver (Campus)",
+      "ats": "greenhouse",
+      "token": "optiverprivate",
+      "verified": true
+    },
+    {
+      "name": "Walleye (Quantic)",
+      "ats": "greenhouse",
+      "token": "walleyecapital-external-students",
+      "verified": true
+    },
+    {
+      "name": "TransMarket Group",
+      "ats": "greenhouse",
+      "token": "transmarketgroup",
+      "verified": true
+    },
+    {
+      "name": "Ansatz Capital",
+      "ats": "lever",
+      "token": "ansatzcapital",
+      "verified": true
+    },
+    {
+      "name": "HAP Capital",
+      "ats": "lever",
+      "token": "hap-capital",
+      "verified": true
+    },
+    {
+      "name": "Arrowstreet Capital",
+      "ats": "workday",
+      "host": "arrowstreetcapital.wd5.myworkdayjobs.com",
+      "tenant": "arrowstreetcapital",
+      "site": "Campus_Careers",
+      "locale": "en-US",
+      "verified": true
+    },
+    {
+      "name": "NVIDIA",
+      "ats": "workday",
+      "host": "nvidia.wd5.myworkdayjobs.com",
+      "tenant": "nvidia",
+      "site": "NVIDIAExternalCareerSite",
+      "locale": "en-US",
+      "search_text": "intern",
+      "verified": true,
+      "critical": true,
+      "health_min_jobs": 1
+    },
+    {
+      "name": "RTX (Raytheon)",
+      "ats": "workday",
+      "host": "globalhr.wd5.myworkdayjobs.com",
+      "tenant": "globalhr",
+      "site": "REC_RTX_Ext_Gateway",
+      "locale": "en-US",
+      "search_text": "intern",
+      "verified": true,
+      "critical": true
+    },
+    {
+      "name": "Northrop Grumman",
+      "ats": "workday",
+      "host": "ngc.wd1.myworkdayjobs.com",
+      "tenant": "ngc",
+      "site": "Northrop_Grumman_External_Site",
+      "locale": "en-US",
+      "search_text": "intern",
+      "verified": true,
+      "critical": true
+    },
+    {
+      "name": "Amazon (AWS / Robotics / all)",
+      "ats": "amazon",
+      "query": "intern",
+      "note": "undocumented endpoint; skips gracefully if blocked"
+    },
+    {
+      "name": "OpenAI",
+      "ats": "ashby",
+      "token": "openai",
+      "verified": true
+    },
+    {
+      "name": "Anthropic",
+      "ats": "greenhouse",
+      "token": "anthropic",
+      "verified": true
+    },
+    {
+      "name": "Databricks",
+      "ats": "greenhouse",
+      "token": "databricks"
+    },
+    {
+      "name": "Page: Google Careers (interns)",
+      "ats": "pagewatch",
+      "url": "https://www.google.com/about/careers/applications/jobs/results?employment_type=INTERN",
+      "watch_keywords": [
+        "2027",
+        "intern"
+      ],
+      "note": "JS-heavy SPA - weak signal; also set Google's own job alert"
+    },
+    {
+      "name": "Page: Meta Careers (internships)",
+      "ats": "pagewatch",
+      "url": "https://www.metacareers.com/jobs",
+      "watch_keywords": [
+        "2027",
+        "intern"
+      ],
+      "note": "JS-heavy SPA - weak signal; also set Meta's own job alert"
+    },
+    {
+      "name": "Page: Apple Jobs",
+      "ats": "pagewatch",
+      "url": "https://jobs.apple.com/en-us/search?team=internships-STDNT-INTRN",
+      "watch_keywords": [
+        "2027",
+        "intern"
+      ],
+      "note": "best-effort"
+    },
+    {
+      "name": "Page: Microsoft Careers",
+      "ats": "pagewatch",
+      "url": "https://careers.microsoft.com/v2/global/en/students.html",
+      "watch_keywords": [
+        "2027",
+        "intern"
+      ],
+      "note": "best-effort; API is bearer-token gated"
+    },
+    {
+      "name": "Page: Netflix Jobs",
+      "ats": "pagewatch",
+      "url": "https://explore.jobs.netflix.net/careers",
+      "watch_keywords": [
+        "2027",
+        "intern"
+      ],
+      "note": "best-effort"
+    },
+    {
+      "name": "Anduril",
+      "ats": "greenhouse",
+      "token": "andurilindustries",
+      "verified": true,
+      "critical": true
+    },
+    {
+      "name": "Palantir",
+      "ats": "lever",
+      "token": "palantir",
+      "verified": true,
+      "critical": true
+    },
+    {
+      "name": "Shield AI",
+      "ats": "lever",
+      "token": "shieldai",
+      "verified": true,
+      "critical": true
+    },
+    {
+      "name": "SpaceX",
+      "ats": "greenhouse",
+      "token": "spacex",
+      "verified": true,
+      "critical": true
+    },
+    {
+      "name": "Boeing",
+      "ats": "workday",
+      "host": "boeing.wd1.myworkdayjobs.com",
+      "tenant": "boeing",
+      "site": "EXTERNAL_CAREERS",
+      "locale": "en-US",
+      "search_text": "intern",
+      "verified": true,
+      "critical": true
+    },
+    {
+      "name": "Cadence",
+      "ats": "workday",
+      "host": "cadence.wd1.myworkdayjobs.com",
+      "tenant": "cadence",
+      "site": "external_careers",
+      "locale": "en-US",
+      "search_text": "intern",
+      "verified": true,
+      "critical": true
+    },
+    {
+      "name": "Page: AMD Student Jobs",
+      "ats": "pagewatch",
+      "url": "https://careers.amd.com/students/jobs",
+      "watch_keywords": ["2027", "intern", "co-op"],
+      "note": "best-effort official page; custom career platform"
+    },
+    {
+      "name": "Page: Tesla Internships",
+      "ats": "pagewatch",
+      "url": "https://www.tesla.com/careers/search/?query=intern",
+      "watch_keywords": ["2027", "intern"],
+      "note": "best-effort official page; JS-heavy custom platform"
+    },
+    {
+      "name": "Page: Synopsys US Intern Roles",
+      "ats": "pagewatch",
+      "url": "https://careers.synopsys.com/usa-intern-roles",
+      "watch_keywords": ["2027", "intern"],
+      "note": "best-effort official EDA internship page"
+    },
+    {
+      "name": "Page: Qualcomm Internships",
+      "ats": "pagewatch",
+      "url": "https://www.qualcomm.com/company/careers/internships-and-early-in-career-opportunities",
+      "watch_keywords": ["2027", "intern"],
+      "note": "best-effort official semiconductor internship page"
+    },
+    {
+      "name": "Page: Lockheed Martin (search)",
+      "ats": "pagewatch",
+      "url": "https://www.lockheedmartinjobs.com/search-jobs",
+      "watch_keywords": [
+        "2027",
+        "intern"
+      ]
+    },
+    {
+      "name": "Page: L3Harris (new grads & interns)",
+      "ats": "pagewatch",
+      "url": "https://careers.l3harris.com/en/new-grads-and-interns",
+      "watch_keywords": [
+        "2027",
+        "intern"
+      ]
+    },
+    {
+      "name": "Page: Leidos careers",
+      "ats": "pagewatch",
+      "url": "https://careers.leidos.com/",
+      "watch_keywords": [
+        "2027",
+        "intern"
+      ]
+    },
+    {
+      "name": "Page: Booz Allen careers",
+      "ats": "pagewatch",
+      "url": "https://www.boozallen.com/careers.html",
+      "watch_keywords": [
+        "2027",
+        "intern"
+      ]
+    },
+    {
+      "name": "Page: General Dynamics Mission Systems",
+      "ats": "pagewatch",
+      "url": "https://careers-gdms.icims.com/jobs/search?ss=1&searchKeyword=intern",
+      "watch_keywords": [
+        "2027",
+        "intern"
+      ]
+    },
+    {
+      "name": "Page: MIT Lincoln Laboratory",
+      "ats": "pagewatch",
+      "url": "https://www.ll.mit.edu/careers/entry-professionals/internships-cooperative-programs",
+      "watch_keywords": [
+        "2027",
+        "apply"
+      ]
+    },
+    {
+      "name": "Page: Johns Hopkins APL",
+      "ats": "pagewatch",
+      "url": "https://www.jhuapl.edu/careers/internships",
+      "watch_keywords": [
+        "2027",
+        "apply"
+      ]
+    },
+    {
+      "name": "Page: GTRI student assistant roles",
+      "ats": "pagewatch",
+      "url": "https://careers.gatech.edu/",
+      "watch_keywords": [
+        "gtri",
+        "student assistant",
+        "intern"
+      ]
+    },
+    {
+      "name": "Page: MITRE students",
+      "ats": "pagewatch",
+      "url": "https://www.mitre.org/careers/student-programs",
+      "watch_keywords": [
+        "2027",
+        "intern"
+      ]
+    },
+    {
+      "name": "Flow Traders",
+      "ats": "greenhouse",
+      "token": "flowtraders",
+      "verified": true
+    },
+    {
+      "name": "IMC Trading",
+      "ats": "greenhouse",
+      "token": "imc",
+      "verified": true
+    },
+    {
+      "name": "AUTO-DISCOVER (all boards found in trackers)",
+      "ats": "autodiscover",
+      "sources": [
+        "https://raw.githubusercontent.com/vanshb03/Summer2027-Internships/dev/.github/scripts/listings.json",
+        "https://raw.githubusercontent.com/speedyapply/2027-SWE-College-Jobs/main/README.md",
+        "https://raw.githubusercontent.com/speedyapply/2027-SWE-College-Jobs/main/INTERN_INTL.md"
+      ],
+      "budget_seconds": 600,
+      "max_workers": 10,
+      "critical": true
+    },
+    {
+      "name": "USAJOBS (NASA / DOE labs / NSA / federal research)",
+      "ats": "usajobs",
+      "keywords": [
+        "software intern",
+        "student trainee computer science",
+        "research intern",
+        "machine learning intern",
+        "data science intern",
+        "pathways intern engineering"
+      ],
+      "note": "needs free USAJOBS_API_KEY + USAJOBS_EMAIL secrets"
+    },
+    {
+      "name": "Page: NSF ETAP (all NSF REUs)",
+      "ats": "pagewatch",
+      "url": "https://etap.nsf.gov/",
+      "watch_keywords": [
+        "2027",
+        "apply",
+        "open"
+      ]
+    },
+    {
+      "name": "Page: Pathways to Science (REU database)",
+      "ats": "pagewatch",
+      "url": "https://www.pathwaystoscience.org/",
+      "watch_keywords": [
+        "summer 2027",
+        "2027"
+      ]
+    },
+    {
+      "name": "Page: karanwxliaa research-for-UG list",
+      "ats": "pagewatch",
+      "url": "https://raw.githubusercontent.com/karanwxliaa/Research-for-UG-Students/main/README.md",
+      "watch_keywords": [
+        "2027"
+      ]
+    },
+    {
+      "name": "Page: JPL internships",
+      "ats": "pagewatch",
+      "url": "https://www.jpl.nasa.gov/careers/internships/",
+      "watch_keywords": [
+        "2027",
+        "apply"
+      ]
+    },
+    {
+      "name": "Page: Sandia internships",
+      "ats": "pagewatch",
+      "url": "https://www.sandia.gov/careers/students-postdocs/internships/",
+      "watch_keywords": [
+        "2027",
+        "apply"
+      ]
+    },
+    {
+      "name": "Page: LLNL DSSI",
+      "ats": "pagewatch",
+      "url": "https://data-science.llnl.gov/dssi",
+      "watch_keywords": [
+        "2027",
+        "apply"
+      ]
+    },
+    {
+      "name": "Tracker: sndsh404 Summer2027 (quant-heavy)",
+      "ats": "github_md",
+      "url": "https://raw.githubusercontent.com/sndsh404/summer-2027-internships/main/README.md",
+      "cycle_year": "2027",
+      "verified": true
+    },
+    {
+      "name": "Tracker: speedyapply 2027 SWE (US)",
+      "ats": "github_md",
+      "url": "https://raw.githubusercontent.com/speedyapply/2027-SWE-College-Jobs/main/README.md",
+      "cycle_year": "2027",
+      "verified": true
+    },
+    {
+      "name": "Tracker: vanshb03 Summer2027",
+      "ats": "github_json",
+      "url": "https://raw.githubusercontent.com/vanshb03/Summer2027-Internships/dev/.github/scripts/listings.json",
+      "cycle_year": "2027",
+      "seasons": [
+        "Summer"
+      ],
+      "verified": true
+    },
+    {
+      "name": "Tracker: NUFT Quant (auto-discovers open boards)",
+      "ats": "nuft",
+      "url": "https://raw.githubusercontent.com/northwesternfintech/2027QuantInternships/main/README.md",
+      "verified": true
+    },
+    {
+      "name": "Tracker: sharunkumar Summer-Internships",
+      "ats": "github_json",
+      "url": "https://raw.githubusercontent.com/sharunkumar/Summer-Internships/dev/.github/scripts/listings.json",
+      "seasons": [
+        "Summer 2027"
+      ],
+      "enabled": false
+    },
+    {
+      "name": "Page: NASA OSTEM internships",
+      "ats": "pagewatch",
+      "url": "https://intern.nasa.gov/",
+      "watch_keywords": [
+        "summer 2027",
+        "fall 2027"
+      ],
+      "note": "JS-heavy portal; also join their alert list"
+    },
+    {
+      "name": "Page: DOE SULI",
+      "ats": "pagewatch",
+      "url": "https://science.osti.gov/wdts/suli",
+      "watch_keywords": [
+        "2027",
+        "now accepting",
+        "application"
+      ]
+    },
+    {
+      "name": "Page: NREIP",
+      "ats": "pagewatch",
+      "url": "https://nreip.asee.org/",
+      "watch_keywords": [
+        "2027",
+        "application",
+        "now open"
+      ]
+    },
+    {
+      "name": "EXAMPLE Workday firm - EDIT or DELETE",
+      "ats": "workday",
+      "host": "TENANT.wd5.myworkdayjobs.com",
+      "tenant": "TENANT",
+      "site": "Careers",
+      "locale": "en-US",
+      "enabled": false
+    },
+    {
+      "name": "Program: SIG students (Discovery Day)",
+      "ats": "pagewatch",
+      "url": "https://careers.sig.com/students",
+      "watch_keywords": [
+        "discovery day",
+        "sophomore",
+        "2027",
+        "application",
+        "apply",
+        "register",
+        "deadline"
+      ],
+      "note": "",
+      "digest": true
+    },
+    {
+      "name": "Program: Jane Street programs & events (INSIGHT/AMP/ETC)",
+      "ats": "pagewatch",
+      "url": "https://www.janestreet.com/join-jane-street/programs-and-events/",
+      "watch_keywords": [
+        "insight",
+        "amp",
+        "etc",
+        "trading challenge",
+        "2027",
+        "application",
+        "apply",
+        "register",
+        "deadline"
+      ],
+      "note": "",
+      "digest": true
+    },
+    {
+      "name": "Program: IMC students (Launchpad)",
+      "ats": "pagewatch",
+      "url": "https://careers.imc.com/us/en/students",
+      "watch_keywords": [
+        "launchpad",
+        "discovery",
+        "2027",
+        "application",
+        "apply",
+        "register",
+        "deadline"
+      ],
+      "note": "",
+      "digest": true
+    },
+    {
+      "name": "Program: DRW students",
+      "ats": "pagewatch",
+      "url": "https://drw.com/careers",
+      "watch_keywords": [
+        "discovery",
+        "insight",
+        "2027",
+        "application",
+        "apply",
+        "register",
+        "deadline"
+      ],
+      "note": "",
+      "digest": true
+    },
+    {
+      "name": "Program: Optiver students (Springboard)",
+      "ats": "pagewatch",
+      "url": "https://optiver.com/working-at-optiver/students/",
+      "watch_keywords": [
+        "springboard",
+        "insight",
+        "sophomore",
+        "2027",
+        "application",
+        "apply",
+        "register",
+        "deadline"
+      ],
+      "note": "",
+      "digest": true
+    },
+    {
+      "name": "Program: HRT students",
+      "ats": "pagewatch",
+      "url": "https://www.hudsonrivertrading.com/careers/",
+      "watch_keywords": [
+        "class",
+        "program",
+        "2027",
+        "application",
+        "apply",
+        "register",
+        "deadline"
+      ],
+      "note": "",
+      "digest": true
+    },
+    {
+      "name": "Program: Two Sigma events",
+      "ats": "pagewatch",
+      "url": "https://careers.twosigma.com/",
+      "watch_keywords": [
+        "freshman",
+        "sophomore",
+        "event",
+        "2027",
+        "application",
+        "apply",
+        "register",
+        "deadline"
+      ],
+      "note": "",
+      "digest": true
+    },
+    {
+      "name": "Competition: IMC Prosperity",
+      "ats": "pagewatch",
+      "url": "https://prosperity.imc.com/",
+      "watch_keywords": [
+        "registration",
+        "prosperity",
+        "2027",
+        "application",
+        "apply",
+        "register",
+        "deadline"
+      ],
+      "note": "",
+      "digest": true
+    },
+    {
+      "name": "Competition: WorldQuant BRAIN",
+      "ats": "pagewatch",
+      "url": "https://www.worldquant.com/brain/",
+      "watch_keywords": [
+        "challenge",
+        "alphathon",
+        "consultant",
+        "2027",
+        "application",
+        "apply",
+        "register",
+        "deadline"
+      ],
+      "note": "",
+      "digest": true
+    },
+    {
+      "name": "Hackathons: MLH 2027 season",
+      "ats": "pagewatch",
+      "url": "https://mlh.io/seasons/2027/events",
+      "watch_keywords": [
+        "hackathon",
+        "atlanta",
+        "georgia"
+      ],
+      "note": "",
+      "digest": true
+    },
+    {
+      "name": "Startup: YC events",
+      "ats": "pagewatch",
+      "url": "https://events.ycombinator.com/",
+      "watch_keywords": [
+        "application",
+        "startup school",
+        "future founders",
+        "2027",
+        "application",
+        "apply",
+        "register",
+        "deadline"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Lab: NREIP (Navy research)",
+      "ats": "pagewatch",
+      "url": "https://navalsteminterns.us/nreip/",
+      "watch_keywords": [
+        "2027",
+        "application",
+        "apply",
+        "register",
+        "deadline"
+      ],
+      "note": "",
+      "digest": true
+    },
+    {
+      "name": "Lab: MIT Lincoln Laboratory summer program",
+      "ats": "pagewatch",
+      "url": "https://careers.ll.mit.edu/content/Summer-Research/",
+      "watch_keywords": [
+        "summer research",
+        "2027",
+        "application",
+        "apply",
+        "register",
+        "deadline"
+      ],
+      "note": "",
+      "digest": true
+    },
+    {
+      "name": "Trackers: underclassmen + research programs (zapplyjobs, JGCL)",
+      "ats": "github_md",
+      "url": "https://raw.githubusercontent.com/zapplyjobs/underclassmen-internships/main/README.md"
+    },
+    {
+      "name": "Program: NVIDIA Ignite (2-week Oct window!)",
+      "ats": "pagewatch",
+      "url": "https://www.nvidia.com/en-us/about-nvidia/careers/university-recruiting/",
+      "watch_keywords": [
+        "ignite",
+        "2027",
+        "application",
+        "apply",
+        "freshman",
+        "sophomore"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Da Vinci Derivatives (Amsterdam quant)",
+      "ats": "greenhouse",
+      "token": "davinciderivatives"
+    },
+    {
+      "name": "Bessemer Fellows (relaunch detector)",
+      "ats": "greenhouse",
+      "token": "bessemerventurepartnersfellows"
+    },
+    {
+      "name": "Kleiner Perkins Fellows",
+      "ats": "ashby",
+      "token": "kleinerperkinsfellows"
+    },
+    {
+      "name": "Scholarship: Goldwater key dates",
+      "ats": "pagewatch",
+      "url": "https://goldwaterscholarship.gov/important-dates/",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Scholarship: GT fellowships office (Goldwater/Astronaut internal deadlines)",
+      "ats": "pagewatch",
+      "url": "https://fellowships.oue.gatech.edu/",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Scholarship: UPE (CS honor society) awards",
+      "ats": "pagewatch",
+      "url": "https://upe.acm.org/scholarship/",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Scholarship: IEEE CS Merwin",
+      "ats": "pagewatch",
+      "url": "https://www.computer.org/volunteering/awards/scholarships/merwin",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Scholarship: IEEE CS UPE award",
+      "ats": "pagewatch",
+      "url": "https://www.computer.org/volunteering/awards/scholarships/upe-student-award",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Scholarship: HKN awards (Madni)",
+      "ats": "pagewatch",
+      "url": "https://hkn.ieee.org/awards",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Scholarship: GT HKN Beta Mu (induction cycles)",
+      "ats": "pagewatch",
+      "url": "https://hkn.gtorg.gatech.edu/",
+      "watch_keywords": [
+        "induction",
+        "apply",
+        "application",
+        "fall",
+        "spring"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Scholarship: Masason Foundation",
+      "ats": "pagewatch",
+      "url": "https://masason-foundation.org/en/requirements/",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Fellowship: Neo Scholars (via Substack archive)",
+      "ats": "pagewatch",
+      "url": "https://neo.substack.com/archive",
+      "watch_keywords": [
+        "scholars",
+        "application",
+        "cohort",
+        "open"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Fellowship: 8VC",
+      "ats": "pagewatch",
+      "url": "https://www.8vc.com/fellowships",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Fellowship: O'Shaughnessy (reopens Jan 1)",
+      "ats": "pagewatch",
+      "url": "https://www.osv.llc/fellowships",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Fellowship: Soma Fellows",
+      "ats": "pagewatch",
+      "url": "https://programs.somacap.com/fellows",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Fellowship: Interact",
+      "ats": "pagewatch",
+      "url": "https://joininteract.com/",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Fellowship: Contrary blog (VP app announcements)",
+      "ats": "pagewatch",
+      "url": "https://contrary.com/blog",
+      "watch_keywords": [
+        "venture partner",
+        "application",
+        "fellowship",
+        "open"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Abroad: ETH Zurich CS summer fellowship",
+      "ats": "pagewatch",
+      "url": "https://inf.ethz.ch/studies/summer-research-fellowship.html",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Abroad: Mitacs Globalink (opens ~Aug!)",
+      "ats": "pagewatch",
+      "url": "https://www.mitacs.ca/our-programs/globalink-research-internship-students/",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Abroad: CERN openlab summer",
+      "ats": "pagewatch",
+      "url": "https://openlab.cern/education",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "NatSec: NSA Codebreaker (fall launch)",
+      "ats": "pagewatch",
+      "url": "https://nsa-codebreaker.org/",
+      "watch_keywords": [
+        "challenge",
+        "register",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "NatSec: NSIN X-Force fellowship",
+      "ats": "pagewatch",
+      "url": "https://www.nsin.us/x-force/",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "NatSec: CIA student programs",
+      "ats": "pagewatch",
+      "url": "https://www.cia.gov/careers/student-programs/",
+      "watch_keywords": [
+        "undergraduate",
+        "internship",
+        "apply",
+        "deadline"
+      ],
+      "digest": true
+    },
+    {
+      "name": "GT: PURA salary award deadlines",
+      "ats": "pagewatch",
+      "url": "https://experiential.learning.gatech.edu/urop/pura-salary/",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "GT: CREATE-X Startup Launch",
+      "ats": "pagewatch",
+      "url": "https://create-x.gatech.edu/launch/startup-launch",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2026",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Abroad: EPFL ERIP (GT students use ERIP not E3)",
+      "ats": "pagewatch",
+      "url": "https://www.epfl.ch/education/international/en/coming-to-epfl/research-internships/",
+      "watch_keywords": [
+        "October",
+        "2027",
+        "open",
+        "nomination"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Abroad: CERN summer student",
+      "ats": "pagewatch",
+      "url": "https://careers.cern/summer",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Abroad: UMich CERN REU (US route)",
+      "ats": "pagewatch",
+      "url": "https://cern-reu.physics.lsa.umich.edu/",
+      "watch_keywords": [
+        "2027",
+        "portal",
+        "open"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Abroad: Max Planck CS internships",
+      "ats": "pagewatch",
+      "url": "https://www.cis.mpg.de/internships/",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Abroad: G-Research Spring into Quant Finance",
+      "ats": "pagewatch",
+      "url": "https://www.gresearch.com/spring-into-quant-finance/",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Abroad: IMC EU student programs (Launchpad)",
+      "ats": "pagewatch",
+      "url": "https://www.imc.com/eu/careers/students-graduates/programs",
+      "watch_keywords": [
+        "Launchpad",
+        "2027",
+        "apply"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Abroad: AIT Budapest (Spring 2027 semester)",
+      "ats": "pagewatch",
+      "url": "https://cs.ait-budapest.com/application/application-dates",
+      "watch_keywords": [
+        "Spring 2027",
+        "deadline"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Abroad: ISTernship ISTA Austria (watch relaunch)",
+      "ats": "pagewatch",
+      "url": "https://phd.pages.ist.ac.at/isternship/",
+      "watch_keywords": [
+        "2027",
+        "open"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Scholarship: AFCEA STEM Majors (national)",
+      "ats": "pagewatch",
+      "url": "https://www.afcea.org/stem-majors-scholarships",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Scholarship: AFCEA NOVA (Arlington eligible)",
+      "ats": "pagewatch",
+      "url": "https://nova.afceachapters.org/scholarships",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Scholarship: AFCEA Belvoir Kevin Carroll",
+      "ats": "pagewatch",
+      "url": "https://belvoir.afceachapters.org/scholarships",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Scholarship: DoD Cyber Service Academy",
+      "ats": "pagewatch",
+      "url": "https://public.cyber.mil/wid/csa/",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Scholarship: Lockheed STEM (relaunch watch)",
+      "ats": "pagewatch",
+      "url": "https://www.lockheedmartin.com/en-us/who-we-are/communities/stem-education/lm-scholarship-program.html",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Scholarship: GT cyber (SCP scholarships)",
+      "ats": "pagewatch",
+      "url": "https://scp.cc.gatech.edu/scholarships",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Scholarship: Two Sigma undergrad (check Sept)",
+      "ats": "pagewatch",
+      "url": "https://www.twosigma.com/undergraduate-students/",
+      "watch_keywords": [
+        "scholarship",
+        "deadline",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Program: HRT CppCon scholarship",
+      "ats": "pagewatch",
+      "url": "https://cppcon.org/hrt-scholarship/",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Program: D.E. Shaw fellowships (Nexus watch)",
+      "ats": "pagewatch",
+      "url": "https://campus.deshaw.com/fellowships",
+      "watch_keywords": [
+        "Nexus",
+        "apply",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "GT: VIP research application",
+      "ats": "pagewatch",
+      "url": "https://vip.gatech.edu/application/",
+      "watch_keywords": [
+        "apply",
+        "phase",
+        "open"
+      ],
+      "digest": true
+    },
+    {
+      "name": "GT: CREATE-X Idea to Prototype",
+      "ats": "pagewatch",
+      "url": "https://create-x.gatech.edu/make/idea-to-prototype",
+      "watch_keywords": [
+        "open",
+        "apply",
+        "application",
+        "deadline",
+        "2027"
+      ],
+      "digest": true
+    },
+    {
+      "name": "GT: GT-Europe (Metz) semester",
+      "ats": "pagewatch",
+      "url": "https://europe.gatech.edu/",
+      "watch_keywords": [
+        "Spring 2027",
+        "apply",
+        "deadline"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Competition: DOE CyberForce",
+      "ats": "pagewatch",
+      "url": "https://cyberforce.energy.gov/",
+      "watch_keywords": [
+        "2026",
+        "apply",
+        "open",
+        "registration"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Competition: National Cyber League",
+      "ats": "pagewatch",
+      "url": "https://nationalcyberleague.org/competition",
+      "watch_keywords": [
+        "registration",
+        "season",
+        "2026"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Competition: US Cyber Games",
+      "ats": "pagewatch",
+      "url": "https://www.uscybergames.com/",
+      "watch_keywords": [
+        "open",
+        "combine",
+        "season",
+        "2026"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Competition: COMAP MCM/ICM",
+      "ats": "pagewatch",
+      "url": "https://www.contest.comap.com/undergraduate/contests/",
+      "watch_keywords": [
+        "2027",
+        "registration"
+      ],
+      "digest": true
+    },
+    {
+      "name": "Competition: picoCTF",
+      "ats": "pagewatch",
+      "url": "https://picoctf.org/",
+      "watch_keywords": [
+        "2027",
+        "registration",
+        "competition"
+      ],
+      "digest": true
+    },
+    {
+      "name": "zapplyjobs research internships tracker",
+      "ats": "github_md",
+      "url": "https://raw.githubusercontent.com/zapplyjobs/Research-Internships-for-Undergraduates/main/README.md"
+    },
+    {
+      "name": "underclassmen opportunities (deadlines)",
+      "ats": "github_md",
+      "url": "https://raw.githubusercontent.com/Jose-Gael-Cruz-Lopez/underclassmen-opportunities/main/README.md"
+    },
+    {
+      "name": "Quant: 3Red Partners",
+      "ats": "greenhouse",
+      "token": "3redpartners",
+      "verified": true
+    },
+    {
+      "name": "Quant: AQR",
+      "ats": "greenhouse",
+      "token": "aqr",
+      "verified": true
+    },
+    {
+      "name": "Quant: Belvedere Trading",
+      "ats": "lever",
+      "token": "belvederetrading",
+      "verified": true
+    },
+    {
+      "name": "Quant: Chicago Trading (CTC)",
+      "ats": "greenhouse",
+      "token": "chicagotrading",
+      "verified": true
+    },
+    {
+      "name": "Quant: DRW",
+      "ats": "greenhouse",
+      "token": "drweng",
+      "verified": true
+    },
+    {
+      "name": "Quant: DV Trading",
+      "ats": "greenhouse",
+      "token": "dvtrading",
+      "verified": true
+    },
+    {
+      "name": "Quant: ExodusPoint",
+      "ats": "greenhouse",
+      "token": "exoduspoint",
+      "verified": true
+    },
+    {
+      "name": "Quant: Five Rings",
+      "ats": "greenhouse",
+      "token": "fiveringsllc",
+      "verified": true
+    },
+    {
+      "name": "Quant: GSA Capital",
+      "ats": "greenhouse",
+      "token": "gsacapital",
+      "verified": true
+    },
+    {
+      "name": "Quant: Geneva Trading",
+      "ats": "greenhouse",
+      "token": "genevatrading",
+      "verified": true
+    },
+    {
+      "name": "Quant: Grasshopper",
+      "ats": "greenhouse",
+      "token": "grasshopperasia",
+      "verified": true
+    },
+    {
+      "name": "Quant: Jane Street",
+      "ats": "greenhouse",
+      "token": "janestreet",
+      "verified": true
+    },
+    {
+      "name": "Quant: Jump Trading",
+      "ats": "greenhouse",
+      "token": "jumptrading",
+      "verified": true
+    },
+    {
+      "name": "Quant: Mako Trading",
+      "ats": "greenhouse",
+      "token": "mako",
+      "verified": true
+    },
+    {
+      "name": "Quant: Man Group",
+      "ats": "greenhouse",
+      "token": "mangroup",
+      "verified": true
+    },
+    {
+      "name": "Quant: Marshall Wace",
+      "ats": "greenhouse",
+      "token": "marshallwace",
+      "verified": true
+    },
+    {
+      "name": "Quant: Old Mission",
+      "ats": "greenhouse",
+      "token": "oldmissioncapital",
+      "verified": true
+    },
+    {
+      "name": "Quant: Optiver",
+      "ats": "greenhouse",
+      "token": "optiver",
+      "verified": true
+    },
+    {
+      "name": "Quant: PDT Partners",
+      "ats": "greenhouse",
+      "token": "pdtpartners",
+      "verified": true
+    },
+    {
+      "name": "Quant: Point72 / Cubist",
+      "ats": "greenhouse",
+      "token": "point72",
+      "verified": true
+    },
+    {
+      "name": "Quant: Qube RT",
+      "ats": "greenhouse",
+      "token": "quberesearchandtechnologies",
+      "verified": true
+    },
+    {
+      "name": "Quant: Schonfeld",
+      "ats": "greenhouse",
+      "token": "schonfeld",
+      "verified": true
+    },
+    {
+      "name": "Quant: Squarepoint",
+      "ats": "greenhouse",
+      "token": "squarepointcapital",
+      "verified": true
+    },
+    {
+      "name": "Quant: Tower Research",
+      "ats": "greenhouse",
+      "token": "towerresearchcapital",
+      "verified": true
+    },
+    {
+      "name": "Quant: Vatic Labs",
+      "ats": "greenhouse",
+      "token": "vaticlabs",
+      "verified": true
+    },
+    {
+      "name": "Quant: Virtu",
+      "ats": "greenhouse",
+      "token": "virtu",
+      "verified": true
+    },
+    {
+      "name": "Quant: Voloridge",
+      "ats": "greenhouse",
+      "token": "voloridgeinvestmentmanagement",
+      "verified": true
+    },
+    {
+      "name": "Quant: Walleye",
+      "ats": "greenhouse",
+      "token": "walleyecapital",
+      "verified": true
+    },
+    {
+      "name": "Quant: Weiss Asset Mgmt",
+      "ats": "greenhouse",
+      "token": "weissassetmanagement",
+      "verified": true
+    },
+    {
+      "name": "Quant: WorldQuant",
+      "ats": "greenhouse",
+      "token": "worldquant",
+      "verified": true
+    },
+    {
+      "name": "Quant: HRT (talent community)",
+      "ats": "greenhouse",
+      "token": "hrttalentcommunity",
+      "verified": true
+    },
+    {
+      "name": "Quant: XTX Markets",
+      "ats": "greenhouse",
+      "token": "xtxmarketstechnologies",
+      "verified": true
+    },
+    {
+      "name": "Quant SPA: Balyasny",
+      "ats": "pagewatch",
+      "url": "https://www.bam.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Millennium",
+      "ats": "pagewatch",
+      "url": "https://careers.mlp.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Citadel",
+      "ats": "pagewatch",
+      "url": "https://www.citadel.com/careers/open-opportunities/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Citadel Securities",
+      "ats": "pagewatch",
+      "url": "https://www.citadelsecurities.com/careers/open-positions/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Two Sigma",
+      "ats": "pagewatch",
+      "url": "https://careers.twosigma.com/careers/Search",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Verition",
+      "ats": "pagewatch",
+      "url": "https://www.verition.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Peak6",
+      "ats": "pagewatch",
+      "url": "https://peak6.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Group One Trading",
+      "ats": "pagewatch",
+      "url": "https://www.grouponetrading.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Wolverine Trading",
+      "ats": "pagewatch",
+      "url": "https://www.wolve.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Maven Securities",
+      "ats": "pagewatch",
+      "url": "https://www.mavensecurities.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Voleon",
+      "ats": "pagewatch",
+      "url": "https://voleon.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: GTS",
+      "ats": "pagewatch",
+      "url": "https://www.gtsx.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Bridgewater",
+      "ats": "pagewatch",
+      "url": "https://www.bridgewater.com/working-at-bridgewater",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Allston Trading",
+      "ats": "pagewatch",
+      "url": "https://www.allstontrading.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Quantlab",
+      "ats": "pagewatch",
+      "url": "https://www.quantlab.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Cboe",
+      "ats": "pagewatch",
+      "url": "https://cboe.wd1.myworkdayjobs.com/External",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Radix Trading",
+      "ats": "pagewatch",
+      "url": "https://www.radix-trading.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Headlands Tech",
+      "ats": "pagewatch",
+      "url": "https://www.headlandstech.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Cumberland (DRW)",
+      "ats": "pagewatch",
+      "url": "https://cumberland.io/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Wintermute",
+      "ats": "pagewatch",
+      "url": "https://www.wintermute.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant/Tech: Simplex Trading",
+      "ats": "greenhouse",
+      "token": "simplextrading",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Winton",
+      "ats": "greenhouse",
+      "token": "winton",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Apollo",
+      "ats": "greenhouse",
+      "token": "apollo",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Amber Group",
+      "ats": "lever",
+      "token": "ambergroup",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Galaxy",
+      "ats": "greenhouse",
+      "token": "galaxydigitalservices",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: B2C2",
+      "ats": "greenhouse",
+      "token": "b2c2",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Keyrock",
+      "ats": "ashby",
+      "token": "keyrock",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Kraken",
+      "ats": "lever",
+      "token": "kraken",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Ramp",
+      "ats": "ashby",
+      "token": "ramp",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Modal Labs",
+      "ats": "ashby",
+      "token": "modal",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Robinhood",
+      "ats": "greenhouse",
+      "token": "robinhood",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Scale AI",
+      "ats": "greenhouse",
+      "token": "scaleai",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Anyscale",
+      "ats": "ashby",
+      "token": "anyscale",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Brex",
+      "ats": "greenhouse",
+      "token": "brex",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Plaid",
+      "ats": "lever",
+      "token": "plaid",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Cohere",
+      "ats": "ashby",
+      "token": "cohere",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Sierra",
+      "ats": "ashby",
+      "token": "sierra",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Notion",
+      "ats": "ashby",
+      "token": "notion",
+      "verified": true
+    },
+    {
+      "name": "Quant/Tech: Vercel",
+      "ats": "greenhouse",
+      "token": "vercel",
+      "verified": true
+    },
+    {
+      "name": "Firm SPA: Goldman Sachs",
+      "ats": "pagewatch",
+      "url": "https://www.goldmansachs.com/careers/students/programs/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Firm SPA: Bloomberg",
+      "ats": "pagewatch",
+      "url": "https://careers.bloomberg.com/job/search?q=intern+2027",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Firm SPA: BlackRock",
+      "ats": "pagewatch",
+      "url": "https://careers.blackrock.com/students/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Firm SPA: Apollo Global",
+      "ats": "pagewatch",
+      "url": "https://www.apollo.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Firm SPA: RBC Capital Markets",
+      "ats": "pagewatch",
+      "url": "https://jobs.rbc.com/ca/en/campus",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Firm SPA: Salesforce Futureforce",
+      "ats": "pagewatch",
+      "url": "https://www.salesforce.com/company/careers/university-recruiting/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant: Gelber Group",
+      "ats": "greenhouse",
+      "token": "gelbergroup",
+      "verified": true
+    },
+    {
+      "name": "Quant: Radix Trading",
+      "ats": "greenhouse",
+      "token": "radixuniversity",
+      "verified": true
+    },
+    {
+      "name": "Quant: Valkyrie Trading",
+      "ats": "lever",
+      "token": "valkyrietrading",
+      "verified": true
+    },
+    {
+      "name": "Quant: Headlands Technologies",
+      "ats": "greenhouse",
+      "token": "headlandstechnologiesllc",
+      "verified": true
+    },
+    {
+      "name": "Quant: Maven Securities",
+      "ats": "greenhouse",
+      "token": "mavensecuritiesholdingltd",
+      "verified": true
+    },
+    {
+      "name": "Quant: Eagle Seven",
+      "ats": "workable",
+      "token": "eagle-seven",
+      "verified": true
+    },
+    {
+      "name": "Quant: Xantium",
+      "ats": "greenhouse",
+      "token": "xantium",
+      "verified": true
+    },
+    {
+      "name": "Quant: Seven Research",
+      "ats": "greenhouse",
+      "token": "sevenresearch",
+      "verified": true
+    },
+    {
+      "name": "Quant: Bracebridge Capital",
+      "ats": "greenhouse",
+      "token": "bracebridgecapital",
+      "verified": true
+    },
+    {
+      "name": "Quant: Numerai",
+      "ats": "workable",
+      "token": "numerai",
+      "verified": true
+    },
+    {
+      "name": "Quant: Universa",
+      "ats": "workable",
+      "token": "universa",
+      "verified": true
+    },
+    {
+      "name": "Quant: Tanius Technology",
+      "ats": "greenhouse",
+      "token": "tanius",
+      "verified": true
+    },
+    {
+      "name": "Quant: tastytrade (IG US)",
+      "ats": "greenhouse",
+      "token": "tastytrade",
+      "verified": true
+    },
+    {
+      "name": "Quant: TransFICC",
+      "ats": "greenhouse",
+      "token": "transficc",
+      "verified": true
+    },
+    {
+      "name": "Quant: Gelber Group (Handshake board)",
+      "ats": "greenhouse",
+      "token": "gelberhandshake",
+      "verified": true
+    },
+    {
+      "name": "Quant: Quadrature Capital",
+      "ats": "greenhouse",
+      "token": "quadraturecapital",
+      "verified": true
+    },
+    {
+      "name": "Quant: Capula Investment Management",
+      "ats": "workable",
+      "token": "capula-investment-management-ltd",
+      "verified": true
+    },
+    {
+      "name": "Quant: BlueCrest Capital Management",
+      "ats": "greenhouse",
+      "token": "bluecrestcapitalmanagement",
+      "verified": true
+    },
+    {
+      "name": "Quant: Capital Fund Management (CFM)",
+      "ats": "greenhouse",
+      "token": "cfm",
+      "verified": true
+    },
+    {
+      "name": "Quant: OxFORD Asset Management",
+      "ats": "greenhouse",
+      "token": "oxam",
+      "verified": true
+    },
+    {
+      "name": "Quant: Smarkets",
+      "ats": "ashby",
+      "token": "smarkets",
+      "verified": true
+    },
+    {
+      "name": "Quant: Wintermute",
+      "ats": "lever",
+      "token": "wintermute-trading",
+      "verified": true
+    },
+    {
+      "name": "Quant: GSR",
+      "ats": "greenhouse",
+      "token": "gsrmarkets",
+      "verified": true
+    },
+    {
+      "name": "Quant: Maverick Derivatives",
+      "ats": "greenhouse",
+      "token": "maverickderivatives",
+      "verified": true
+    },
+    {
+      "name": "Quant: Tibra Capital",
+      "ats": "workable",
+      "token": "tibra",
+      "verified": true
+    },
+    {
+      "name": "Quant: Wincent",
+      "ats": "ashby",
+      "token": "wincent",
+      "verified": true
+    },
+    {
+      "name": "Quant: FalconX",
+      "ats": "greenhouse",
+      "token": "falconx",
+      "verified": true
+    },
+    {
+      "name": "Quant: Anchorage Digital",
+      "ats": "lever",
+      "token": "anchorage",
+      "verified": true
+    },
+    {
+      "name": "Quant: Auros",
+      "ats": "greenhouse",
+      "token": "aurosglobal",
+      "verified": true
+    },
+    {
+      "name": "Quant: Talos",
+      "ats": "ashby",
+      "token": "Talos-Trading",
+      "verified": true
+    },
+    {
+      "name": "Quant: Gemini",
+      "ats": "greenhouse",
+      "token": "gemini",
+      "verified": true
+    },
+    {
+      "name": "Quant: Polymarket",
+      "ats": "ashby",
+      "token": "polymarket",
+      "verified": true
+    },
+    {
+      "name": "Quant: Gauntlet",
+      "ats": "lever",
+      "token": "gauntlet",
+      "verified": true
+    },
+    {
+      "name": "Quant: Grayscale Investments",
+      "ats": "greenhouse",
+      "token": "grayscaleinvestments",
+      "verified": true
+    },
+    {
+      "name": "Quant: Uniswap Labs",
+      "ats": "ashby",
+      "token": "uniswap",
+      "verified": true
+    },
+    {
+      "name": "Quant: Engineers Gate",
+      "ats": "greenhouse",
+      "token": "engineersgate",
+      "verified": true
+    },
+    {
+      "name": "Quant: Capstone Investment Advisors",
+      "ats": "greenhouse",
+      "token": "capstoneinvestmentadvisors",
+      "verified": true
+    },
+    {
+      "name": "Quant: Graham Capital Management",
+      "ats": "greenhouse",
+      "token": "grahamcapitalmanagement",
+      "verified": true
+    },
+    {
+      "name": "Quant: Quantbot Technologies",
+      "ats": "greenhouse",
+      "token": "quantbot-technologies",
+      "verified": true
+    },
+    {
+      "name": "Quant: TGS Management",
+      "ats": "lever",
+      "token": "tgsmc",
+      "verified": true
+    },
+    {
+      "name": "Quant: Voleon Group",
+      "ats": "ashby",
+      "token": "voleon",
+      "verified": true
+    },
+    {
+      "name": "Quant: Engelhart (incl. Trailstone)",
+      "ats": "greenhouse",
+      "token": "engelhart",
+      "verified": true
+    },
+    {
+      "name": "Quant: Gridmatic",
+      "ats": "lever",
+      "token": "gridmatic",
+      "verified": true
+    },
+    {
+      "name": "Quant: Spearmint Energy",
+      "ats": "greenhouse",
+      "token": "spearmintenergy",
+      "verified": true
+    },
+    {
+      "name": "Quant: Tyba Energy",
+      "ats": "ashby",
+      "token": "tyba",
+      "verified": true
+    },
+    {
+      "name": "Quant: Habitat Energy",
+      "ats": "workable",
+      "token": "habitat-energy",
+      "verified": true
+    },
+    {
+      "name": "Quant: Modo Energy",
+      "ats": "greenhouse",
+      "token": "modoenergy",
+      "verified": true
+    },
+    {
+      "name": "Quant: Yes Energy",
+      "ats": "greenhouse",
+      "token": "yesenergy",
+      "verified": true
+    },
+    {
+      "name": "Quant: Amperon",
+      "ats": "greenhouse",
+      "token": "amperon",
+      "verified": true
+    },
+    {
+      "name": "Quant: Ascend Analytics",
+      "ats": "greenhouse",
+      "token": "ascendanalytics",
+      "verified": true
+    },
+    {
+      "name": "Quant: Kpler",
+      "ats": "lever",
+      "token": "kpler",
+      "verified": true
+    },
+    {
+      "name": "Quant: Onyx Capital Group",
+      "ats": "workable",
+      "token": "onyx-capital-group",
+      "verified": true
+    },
+    {
+      "name": "Quant: Trillium Trading",
+      "ats": "greenhouse",
+      "token": "trillium",
+      "verified": true
+    },
+    {
+      "name": "Quant: Laurion Capital Management",
+      "ats": "greenhouse",
+      "token": "laurioncapitalmanagement",
+      "verified": true
+    },
+    {
+      "name": "Quant: Clear Street",
+      "ats": "greenhouse",
+      "token": "clearstreet",
+      "verified": true
+    },
+    {
+      "name": "Quant: Chimera Securities",
+      "ats": "workable",
+      "token": "chimera-securities-llc",
+      "verified": true
+    },
+    {
+      "name": "Quant: Garda Capital Partners",
+      "ats": "greenhouse",
+      "token": "gardacp",
+      "verified": true
+    },
+    {
+      "name": "Quant: Symmetry Investments",
+      "ats": "lever",
+      "token": "symmetryinvestments",
+      "verified": true
+    },
+    {
+      "name": "Quant: Crabel Capital Management",
+      "ats": "greenhouse",
+      "token": "crabel",
+      "verified": true
+    },
+    {
+      "name": "Quant: Databento",
+      "ats": "greenhouse",
+      "token": "databento",
+      "verified": true
+    },
+    {
+      "name": "Quant: IEX Group",
+      "ats": "greenhouse",
+      "token": "iex",
+      "verified": true
+    },
+    {
+      "name": "Quant: MEMX",
+      "ats": "greenhouse",
+      "token": "memx",
+      "verified": true
+    },
+    {
+      "name": "Quant: DriveWealth",
+      "ats": "greenhouse",
+      "token": "drivewealth",
+      "verified": true
+    },
+    {
+      "name": "Quant: Alpaca",
+      "ats": "greenhouse",
+      "token": "alpaca",
+      "verified": true
+    },
+    {
+      "name": "Quant: Trumid",
+      "ats": "greenhouse",
+      "token": "trumid",
+      "verified": true
+    },
+    {
+      "name": "Quant: BMLL Technologies",
+      "ats": "workable",
+      "token": "bmlltech",
+      "verified": true
+    },
+    {
+      "name": "Quant: Pico",
+      "ats": "greenhouse",
+      "token": "picoquantitativetrading",
+      "verified": true
+    },
+    {
+      "name": "Quant: OneChronos",
+      "ats": "ashby",
+      "token": "onechronos",
+      "verified": true
+    },
+    {
+      "name": "Quant: BestEx Research",
+      "ats": "workable",
+      "token": "bestex-research",
+      "verified": true
+    },
+    {
+      "name": "Quant SPA: XR Trading",
+      "ats": "pagewatch",
+      "url": "https://www.xrtrading.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Sumo Capital",
+      "ats": "pagewatch",
+      "url": "https://sumo.co/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: WH Trading",
+      "ats": "pagewatch",
+      "url": "https://www.whtrading.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Hard Eight Trading",
+      "ats": "pagewatch",
+      "url": "https://www.hard8trading.com/careers.html",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Prime Trading",
+      "ats": "pagewatch",
+      "url": "https://www.prime-trading.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Consolidated Trading",
+      "ats": "pagewatch",
+      "url": "https://www.consolidatedtrading.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Edgehog Trading",
+      "ats": "pagewatch",
+      "url": "https://www.edgehogtrading.com/careers/open-positions",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Nico Trading (Nico Holdings)",
+      "ats": "pagewatch",
+      "url": "https://www.nicotrading.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Volant Trading",
+      "ats": "pagewatch",
+      "url": "https://volanttrading.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Archelon",
+      "ats": "pagewatch",
+      "url": "https://www.archelon-group.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Bluefin Capital Management",
+      "ats": "pagewatch",
+      "url": "https://www.bfcm.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Marquette Partners",
+      "ats": "pagewatch",
+      "url": "http://www.marquettepartnersholdingsllc.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Blue Trading Systems",
+      "ats": "pagewatch",
+      "url": "https://www.bluetradingsystems.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: G-Research",
+      "ats": "pagewatch",
+      "url": "https://www.gresearch.com/vacancies/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Aspect Capital",
+      "ats": "pagewatch",
+      "url": "https://www.aspectcapital.com/about/team/research-internships-with-aspect-capital/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Systematica Investments",
+      "ats": "pagewatch",
+      "url": "https://www.systematica.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Man AHL (Man Group)",
+      "ats": "pagewatch",
+      "url": "https://www.man.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: LMR Partners",
+      "ats": "pagewatch",
+      "url": "https://www.lmrpartners.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Fulcrum Asset Management",
+      "ats": "pagewatch",
+      "url": "https://www.fulcrumasset.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Flowdesk",
+      "ats": "pagewatch",
+      "url": "https://www.flowdesk.co/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: QuantCube Technology",
+      "ats": "pagewatch",
+      "url": "https://www.quant-cube.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Quantica Capital",
+      "ats": "pagewatch",
+      "url": "https://www.quantica.ch/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: swissQuant Group",
+      "ats": "pagewatch",
+      "url": "https://www.swissquant.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: All Options",
+      "ats": "pagewatch",
+      "url": "https://www.alloptions.nl/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: WEBB Traders",
+      "ats": "pagewatch",
+      "url": "https://www.webbtraders.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Deep Blue Capital",
+      "ats": "pagewatch",
+      "url": "https://www.deepbluecap.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Nyenburgh",
+      "ats": "pagewatch",
+      "url": "https://www.nyenburgh.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: XBTO",
+      "ats": "pagewatch",
+      "url": "https://www.xbto.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Nonco",
+      "ats": "pagewatch",
+      "url": "https://nonco.com/company/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Dexterity Capital",
+      "ats": "pagewatch",
+      "url": "https://dexterity.capital/recruitment/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Chaos Labs",
+      "ats": "pagewatch",
+      "url": "https://chaoslabs.xyz/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Pantera Capital",
+      "ats": "pagewatch",
+      "url": "https://jobs.panteracapital.com/jobs",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: BlockFills",
+      "ats": "pagewatch",
+      "url": "https://www.blockfills.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Wolverine Trading",
+      "ats": "pagewatch",
+      "url": "https://www.wolve.com/open-positions",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Group One Trading",
+      "ats": "pagewatch",
+      "url": "https://group1.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Quantlab",
+      "ats": "pagewatch",
+      "url": "https://www.quantlab.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Trexquant Investment",
+      "ats": "pagewatch",
+      "url": "https://trexquant.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Stevens Capital Management",
+      "ats": "pagewatch",
+      "url": "https://www.scm-lp.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Tradebot Systems",
+      "ats": "pagewatch",
+      "url": "https://www.tradebot.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Verition Fund Management",
+      "ats": "pagewatch",
+      "url": "https://www.verition.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Renaissance Technologies",
+      "ats": "pagewatch",
+      "url": "https://www.rentec.com/Careers.action?jobs=true",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Acadian Asset Management",
+      "ats": "pagewatch",
+      "url": "https://www.acadian-asset.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: AQR Capital Management",
+      "ats": "pagewatch",
+      "url": "https://careers.aqr.com/jobs/department/university-jobs",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Campbell & Company",
+      "ats": "pagewatch",
+      "url": "https://campbell.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Squarepoint Capital",
+      "ats": "pagewatch",
+      "url": "https://www.squarepoint-capital.com/early-careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Qube Research & Technologies",
+      "ats": "pagewatch",
+      "url": "https://www.qube-rt.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: GTS",
+      "ats": "pagewatch",
+      "url": "https://gtsx.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: DC Energy",
+      "ats": "pagewatch",
+      "url": "https://www.dc-energy.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: e360 Power",
+      "ats": "pagewatch",
+      "url": "https://www.e360power.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Appian Way Energy Partners",
+      "ats": "pagewatch",
+      "url": "https://www.appianwayenergy.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: SESCO Enterprises",
+      "ats": "pagewatch",
+      "url": "https://sescollc.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Elmagin Capital",
+      "ats": "pagewatch",
+      "url": "http://www.elmagincapital.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Mercuria Energy America",
+      "ats": "pagewatch",
+      "url": "https://mercuria.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Freepoint Commodities",
+      "ats": "pagewatch",
+      "url": "https://www.freepoint.com/life-at-freepoint/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Hartree Partners",
+      "ats": "pagewatch",
+      "url": "https://www.hartreepartners.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Tenaska (Power Services)",
+      "ats": "pagewatch",
+      "url": "https://recruiting.ultipro.com/TEN1001TEINC/JobBoard/52989607-07f5-4be5-b6f7-1878fa879db5/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: The Energy Authority",
+      "ats": "pagewatch",
+      "url": "https://www3.teainc.org/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Boston Energy Trading and Marketing (BETM)",
+      "ats": "pagewatch",
+      "url": "https://www.betm.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Boston Energy Group",
+      "ats": "pagewatch",
+      "url": "https://www.bostonenergygroup.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Statar Capital",
+      "ats": "pagewatch",
+      "url": "https://www.statarcapital.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Skylar Capital Management",
+      "ats": "pagewatch",
+      "url": "https://www.skylarcapital.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Saracen Energy",
+      "ats": "pagewatch",
+      "url": "https://saracenenergy.com/careers.html",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Twin Eagle Resource Management",
+      "ats": "pagewatch",
+      "url": "https://twineagleresourcemanagement.applytojob.com/apply",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: InCommodities North America",
+      "ats": "pagewatch",
+      "url": "https://incommodities.com/join-us",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: HC Tech (HC Technologies)",
+      "ats": "pagewatch",
+      "url": "https://www.hctech.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: XO Energy",
+      "ats": "pagewatch",
+      "url": "http://www.xo-energy.com/jobs",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: AEGIS Hedging",
+      "ats": "pagewatch",
+      "url": "https://aegis-hedging.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: ACES Power",
+      "ats": "pagewatch",
+      "url": "https://acespower.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Nodal Exchange",
+      "ats": "pagewatch",
+      "url": "https://www.nodalexchange.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: PCI Energy Solutions",
+      "ats": "pagewatch",
+      "url": "https://www.pcienergysolutions.com/about/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Aurora Energy Research",
+      "ats": "pagewatch",
+      "url": "https://auroraer.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Seven Eight Capital",
+      "ats": "pagewatch",
+      "url": "https://www.seveneightcapital.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Jain Global",
+      "ats": "pagewatch",
+      "url": "https://www.jainglobal.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Hudson Bay Capital",
+      "ats": "pagewatch",
+      "url": "https://www.hudsonbaycapital.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Saba Capital Management",
+      "ats": "pagewatch",
+      "url": "https://www.sabacapital.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Kepos Capital",
+      "ats": "pagewatch",
+      "url": "https://www.keposcapital.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Dark Forest Capital Management",
+      "ats": "pagewatch",
+      "url": "https://www.darkforesttech.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Quantitative Brokers",
+      "ats": "pagewatch",
+      "url": "https://www.quantitativebrokers.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: SMB Capital",
+      "ats": "pagewatch",
+      "url": "https://smbcap.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: T3 Trading Group",
+      "ats": "pagewatch",
+      "url": "https://t3trading.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Seven Points Capital",
+      "ats": "pagewatch",
+      "url": "https://sevenpointscapital.pinpointhq.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: First New York (FNY)",
+      "ats": "pagewatch",
+      "url": "https://www.firstny.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Marathon Trading Investment Management",
+      "ats": "pagewatch",
+      "url": "https://marathontradingllc.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Tradition (Compagnie Financiere Tradition / TFS)",
+      "ats": "pagewatch",
+      "url": "https://www.tradition.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Proof Trading",
+      "ats": "pagewatch",
+      "url": "https://prooftrading.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Quantitative Investment Management (QIM)",
+      "ats": "pagewatch",
+      "url": "https://quantitative.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Fort LP",
+      "ats": "pagewatch",
+      "url": "https://www.fortlp.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Freestone Grove Partners",
+      "ats": "pagewatch",
+      "url": "https://jobs.gem.com/freestone-grove-partners",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: PanAgora Asset Management",
+      "ats": "pagewatch",
+      "url": "https://www.panagora.com/careers-panagora-asset-management/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: GMO",
+      "ats": "pagewatch",
+      "url": "https://www.gmo.com/americas/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Geode Capital Management",
+      "ats": "pagewatch",
+      "url": "https://www.geodecapital.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Millburn Ridgefield",
+      "ats": "pagewatch",
+      "url": "https://www.millburncorp.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Welton Investment Partners",
+      "ats": "pagewatch",
+      "url": "https://www.welton.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Research Affiliates",
+      "ats": "pagewatch",
+      "url": "https://www.researchaffiliates.com/about-us/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Los Angeles Capital Management",
+      "ats": "pagewatch",
+      "url": "https://www.lacapm.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Jacobs Levy Equity Management",
+      "ats": "pagewatch",
+      "url": "https://jlem.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Intech Investment Management",
+      "ats": "pagewatch",
+      "url": "https://www.intechinvestments.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Coatue Management",
+      "ats": "pagewatch",
+      "url": "https://www.coatue.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Quantedge Capital",
+      "ats": "pagewatch",
+      "url": "https://www.quantedge.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Massive (formerly Polygon.io)",
+      "ats": "pagewatch",
+      "url": "https://massive.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: OTC Markets Group",
+      "ats": "pagewatch",
+      "url": "https://www.otcmarkets.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: MIAX (Miami International Holdings)",
+      "ats": "pagewatch",
+      "url": "https://www.miaxglobal.com/company/about/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: TXSE Group (Texas Stock Exchange)",
+      "ats": "pagewatch",
+      "url": "https://www.txse.com",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Apex Fintech Solutions",
+      "ats": "pagewatch",
+      "url": "https://careers.apexfintechsolutions.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: MarketAxess",
+      "ats": "pagewatch",
+      "url": "https://www.marketaxess.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Tradeweb",
+      "ats": "pagewatch",
+      "url": "https://www.tradeweb.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Kaiko",
+      "ats": "pagewatch",
+      "url": "https://jobs.kaiko.ai/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Exegy",
+      "ats": "pagewatch",
+      "url": "https://www.exegy.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Options Technology",
+      "ats": "pagewatch",
+      "url": "https://optionsit.bamboohr.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Deephaven Data Labs",
+      "ats": "pagewatch",
+      "url": "https://deephaven.io/company/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: OneMarketData (OneTick)",
+      "ats": "pagewatch",
+      "url": "https://www.onetick.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: oneZero Financial Systems",
+      "ats": "pagewatch",
+      "url": "https://www.onezero.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: LMAX Group",
+      "ats": "pagewatch",
+      "url": "https://careers.lmax.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Adaptive Financial Consulting",
+      "ats": "pagewatch",
+      "url": "https://weareadaptive.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Beacon Platform",
+      "ats": "pagewatch",
+      "url": "https://www.beacon.io/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Trading Technologies",
+      "ats": "pagewatch",
+      "url": "https://www.tradingtechnologies.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: CQG",
+      "ats": "pagewatch",
+      "url": "https://www.cqg.com/about-us/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Barchart",
+      "ats": "pagewatch",
+      "url": "https://www.barchart.com/solutions/company/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: SpiderRock",
+      "ats": "pagewatch",
+      "url": "https://spiderrock.net/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Sterling Trading Tech",
+      "ats": "pagewatch",
+      "url": "https://sterlingtradingtech.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Eventus",
+      "ats": "pagewatch",
+      "url": "https://www.eventus.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Ridgeline",
+      "ats": "pagewatch",
+      "url": "https://ridgeline.ai/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: McKay Brothers / Quincy Data",
+      "ats": "pagewatch",
+      "url": "https://mckay-brothers.com/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Connamara Technologies",
+      "ats": "pagewatch",
+      "url": "https://connamara.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Aquis Exchange",
+      "ats": "pagewatch",
+      "url": "https://www.aquis.eu/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: TS Imagine",
+      "ats": "pagewatch",
+      "url": "https://tsimagine.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: FlexTrade Systems",
+      "ats": "pagewatch",
+      "url": "https://flextrade.com/careers/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: MayStreet",
+      "ats": "pagewatch",
+      "url": "https://www.lseg.com/en/careers",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Hudson Fintech",
+      "ats": "pagewatch",
+      "url": "https://www.hudson-fintech.com/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "campus"
+      ]
+    },
+    {
+      "name": "Quant SPA: Geneva Trading (open positions)",
+      "ats": "pagewatch",
+      "url": "https://www.genevatrading.com/careers-open-positions/",
+      "watch_keywords": [
+        "intern",
+        "2027",
+        "summer",
+        "trader",
+        "developer"
+      ]
+    },
+    {
+      "name": "Competition: Optiver Ready Trader Go",
+      "ats": "pagewatch",
+      "url": "https://readytradergo.optiver.com/",
+      "digest": true,
+      "watch_keywords": [
+        "register",
+        "2027",
+        "apply"
+      ]
+    },
+    {
+      "name": "Competition: Jane Street puzzles (monthly)",
+      "ats": "pagewatch",
+      "url": "https://www.janestreet.com/puzzles/",
+      "digest": true
+    },
+    {
+      "name": "Competition: Jane Street Kaggle & events",
+      "ats": "pagewatch",
+      "url": "https://www.janestreet.com/join-jane-street/events/",
+      "digest": true
+    },
+    {
+      "name": "Competition: Citadel Terminal (AI algo comp)",
+      "ats": "pagewatch",
+      "url": "https://terminal.c1games.com/",
+      "digest": true
+    },
+    {
+      "name": "Competition: SIG competitions & challenges",
+      "ats": "pagewatch",
+      "url": "https://careers.sig.com/discovery-programs",
+      "digest": true
+    },
+    {
+      "name": "Competition: Kaggle featured comps",
+      "ats": "pagewatch",
+      "url": "https://www.kaggle.com/competitions",
+      "digest": true
+    },
+    {
+      "name": "Competition: QuantConnect / Quantiacs contests",
+      "ats": "pagewatch",
+      "url": "https://www.quantiacs.com/contest",
+      "digest": true
+    },
+    {
+      "name": "Competition: Putnam (MAA)",
+      "ats": "pagewatch",
+      "url": "https://maa.org/math-competitions/putnam-competition",
+      "digest": true,
+      "watch_keywords": [
+        "register",
+        "december",
+        "2026"
+      ]
+    },
+    {
+      "name": "Competition: COMAP MCM/ICM dates",
+      "ats": "pagewatch",
+      "url": "https://www.comap.com/contests/mcm-icm",
+      "digest": true
+    },
+    {
+      "name": "Competition: Virginia Tech Regional Math Contest",
+      "ats": "pagewatch",
+      "url": "https://www.math.vt.edu/",
+      "digest": true
+    },
+    {
+      "name": "Competition: IMC university math olympiad",
+      "ats": "pagewatch",
+      "url": "https://www.imc-math.org.uk/",
+      "digest": true
+    },
+    {
+      "name": "Competition: ICPC global",
+      "ats": "pagewatch",
+      "url": "https://icpc.global/",
+      "digest": true
+    },
+    {
+      "name": "Competition: ICPC Southeast USA region",
+      "ats": "pagewatch",
+      "url": "https://icpc.global/regionals/finder/southeast-usa",
+      "digest": true
+    },
+    {
+      "name": "Competition: MIT Battlecode (January)",
+      "ats": "pagewatch",
+      "url": "https://battlecode.org/",
+      "digest": true
+    },
+    {
+      "name": "Competition: IEEEXtreme (24h, October)",
+      "ats": "pagewatch",
+      "url": "https://ieeextreme.org/",
+      "digest": true
+    },
+    {
+      "name": "Competition: Google Summer of Code",
+      "ats": "pagewatch",
+      "url": "https://summerofcode.withgoogle.com/",
+      "digest": true
+    },
+    {
+      "name": "Competition: MITRE eCTF",
+      "ats": "pagewatch",
+      "url": "https://ectf.mitre.org/",
+      "digest": true
+    },
+    {
+      "name": "Competition: CSAW CTF (NYU)",
+      "ats": "pagewatch",
+      "url": "https://www.csaw.io/",
+      "digest": true
+    },
+    {
+      "name": "Competition: Hivestorm",
+      "ats": "pagewatch",
+      "url": "https://hivestorm.org/",
+      "digest": true
+    },
+    {
+      "name": "Hackathon: HackGT (Georgia Tech)",
+      "ats": "pagewatch",
+      "url": "https://hack.gt/",
+      "digest": true
+    },
+    {
+      "name": "Hackathon: HackMIT",
+      "ats": "pagewatch",
+      "url": "https://hackmit.org/",
+      "digest": true
+    },
+    {
+      "name": "Hackathon: TreeHacks (Stanford)",
+      "ats": "pagewatch",
+      "url": "https://www.treehacks.com/",
+      "digest": true
+    },
+    {
+      "name": "Hackathon: PennApps",
+      "ats": "pagewatch",
+      "url": "https://pennapps.com/",
+      "digest": true
+    },
+    {
+      "name": "Hackathon: Hack the North (Waterloo)",
+      "ats": "pagewatch",
+      "url": "https://hackthenorth.com/",
+      "digest": true
+    },
+    {
+      "name": "Hackathon: Devpost featured",
+      "ats": "pagewatch",
+      "url": "https://devpost.com/hackathons?open_to[]=public",
+      "digest": true
+    },
+    {
+      "name": "Fellowship: Thiel Fellowship",
+      "ats": "pagewatch",
+      "url": "https://thielfellowship.org/",
+      "digest": true
+    },
+    {
+      "name": "Fellowship: Z Fellows",
+      "ats": "pagewatch",
+      "url": "https://www.zfellows.com/",
+      "digest": true
+    },
+    {
+      "name": "Scholarship: DoD SMART",
+      "ats": "pagewatch",
+      "url": "https://www.smartscholarship.org/smart",
+      "digest": true,
+      "watch_keywords": [
+        "open",
+        "apply",
+        "deadline"
+      ]
+    },
+    {
+      "name": "Fellowship: Hertz (senior year)",
+      "ats": "pagewatch",
+      "url": "https://www.hertzfoundation.org/the-fellowship/",
+      "digest": true
+    },
+    {
+      "name": "Fellowship: Churchill Scholarship",
+      "ats": "pagewatch",
+      "url": "https://www.churchillscholarship.org/",
+      "digest": true
+    },
+    {
+      "name": "Fellowship: Marshall Scholarship",
+      "ats": "pagewatch",
+      "url": "https://www.marshallscholarship.org/",
+      "digest": true
+    },
+    {
+      "name": "Fellowship: Rhodes Scholarship",
+      "ats": "pagewatch",
+      "url": "https://www.rhodeshouse.ox.ac.uk/scholarships/",
+      "digest": true
+    },
+    {
+      "name": "GT: PURA salary award",
+      "ats": "pagewatch",
+      "url": "https://undergradresearch.gatech.edu/pura-salary",
+      "digest": true
+    },
+    {
+      "name": "GT: CREATE-X Startup Launch",
+      "ats": "pagewatch",
+      "url": "https://create-x.gatech.edu/",
+      "digest": true
+    },
+    {
+      "name": "GT: undergraduate research opportunities",
+      "ats": "pagewatch",
+      "url": "https://undergradresearch.gatech.edu/",
+      "digest": true
+    }
+  ]
+}

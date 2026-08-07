@@ -1,0 +1,90 @@
+name: Internship watcher
+
+on:
+  schedule:
+    # Poll internships every three hours. Offset from the top of the hour to
+    # avoid the busiest GitHub Actions scheduling window.
+    - cron: "17 */3 * * *"
+  push:
+    branches: [main]
+    paths:
+      - .github/watcher-test-trigger
+  workflow_dispatch:      # "Run workflow" button
+    inputs:
+      mode:
+        description: "What to run"
+        required: false
+        default: internships
+        type: choice
+        options:
+          - internships   # full Spring/Summer 2027 sweep
+          - digest        # optional competitions/programs digest
+
+permissions:
+  contents: read
+
+concurrency:
+  group: watcher
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Validate filters and ranking
+        run: python -m unittest -v
+
+      - name: Restore private watcher state
+        uses: actions/cache/restore@v4
+        with:
+          path: state
+          key: watcher-state-${{ github.run_id }}
+          restore-keys: |
+            watcher-state-
+
+      - name: Load private configuration
+        env:
+          PRIVATE_CONFIG_B64: ${{ secrets.PRIVATE_CONFIG_B64 }}
+        run: |
+          if [ -n "$PRIVATE_CONFIG_B64" ]; then
+            printf '%s' "$PRIVATE_CONFIG_B64" | base64 --decode > config.private.json
+            echo "Private configuration loaded."
+          else
+            echo "No private configuration secret set; using neutral public defaults."
+          fi
+
+      - name: Run watcher
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          USAJOBS_API_KEY: ${{ secrets.USAJOBS_API_KEY }}
+          USAJOBS_EMAIL: ${{ secrets.USAJOBS_EMAIL }}
+          PRIVATE_CONFIG_FILE: config.private.json
+          SEEN_FILE: state/seen_jobs.json
+          OPEN_ROLES_FILE: state/OPEN_ROLES.md
+          TOP_PICKS_FILE: state/TOP_PICKS.md
+          # The optional competitions digest is manual-only.
+          DIGEST_MODE: ${{ github.event.inputs.mode == 'digest' && '1' || '0' }}
+        run: python watcher.py
+
+      - name: Save private watcher state
+        if: ${{ always() && hashFiles('state/seen_jobs.json') != '' }}
+        uses: actions/cache/save@v4
+        with:
+          path: state
+          key: watcher-state-${{ github.run_id }}
