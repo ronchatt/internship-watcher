@@ -831,6 +831,15 @@ def is_relevant(job, filters):
     if re.search(r"\b(?:unpaid|no compensation|without compensation)\b", pay_text):
         return _drop("unpaid", title)
 
+    minimum_pay = filters.get("minimum_hourly_compensation")
+    pay_range = _hourly_compensation_range(job)
+    company = (job.get("company") or "").strip().lower()
+    exempt = any(re.search(r"\b" + re.escape(c.lower()) + r"\b", company)
+                 for c in filters.get("compensation_exempt_companies", []))
+    if minimum_pay is not None and pay_range and not exempt:
+        if pay_range[1] < float(minimum_pay):
+            return _drop("below-minimum-pay", title)
+
     # 2) must be in a domain you care about. Prefer title evidence, but retain a
     #    generic internship title when its description clearly establishes fit.
     require = filters.get("title_require_any", [])
@@ -956,7 +965,7 @@ def canonicalize_seen_state(seen):
     return migrated
 
 
-def _hourly_compensation(job):
+def _legacy_hourly_compensation(job):
     """Extract only explicitly hourly USD compensation; never guess conversions."""
     hay = " ".join([job.get("compensation", "") or "",
                     (job.get("content", "") or "")[:12000]])
@@ -973,6 +982,45 @@ def _hourly_compensation(job):
     for match in re.finditer(patterns[1], hay, re.I):
         values.append(float(match.group(1)))
     return max(values) if values else None
+
+
+def _hourly_compensation_range(job):
+    """Return disclosed USD hourly bounds, including annualized salary bands."""
+    hay = " ".join([job.get("compensation", "") or "",
+                    (job.get("content", "") or "")[:12000]])
+    separator = r"(?:-|\u2013|\u2014|to)"
+    hourly_range = (
+        r"\$\s*(\d{1,3}(?:\.\d+)?)\s*" + separator +
+        r"\s*\$?\s*(\d{1,3}(?:\.\d+)?)\s*(?:/|per\s+)(?:hour|hr)\b"
+    )
+    ranges = [(float(m.group(1)), float(m.group(2)))
+              for m in re.finditer(hourly_range, hay, re.I)]
+    if ranges:
+        return max(ranges, key=lambda values: values[1])
+
+    hourly_single = r"\$\s*(\d{1,3}(?:\.\d+)?)\s*(?:/|per\s+)(?:hour|hr)\b"
+    values = [float(m.group(1)) for m in re.finditer(hourly_single, hay, re.I)]
+    if values:
+        value = max(values)
+        return value, value
+
+    annual_range = (
+        r"(?:\$\s*)?(\d{2,3}(?:,\d{3})(?:\.\d+)?)\s*(?:USD\s*)?" +
+        separator +
+        r"\s*(?:\$\s*)?(\d{2,3}(?:,\d{3})(?:\.\d+)?)"
+        r"(?:\s*USD)?(?:\s*(?:per\s+year|annually|annual|/\s*year))?"
+    )
+    annual = [(float(m.group(1).replace(",", "")) / 2080,
+               float(m.group(2).replace(",", "")) / 2080)
+              for m in re.finditer(annual_range, hay, re.I)
+              if "$" in m.group(0) or "usd" in m.group(0).lower()]
+    return max(annual, key=lambda values: values[1]) if annual else None
+
+
+def _hourly_compensation(job):
+    """Return the disclosed range midpoint for soft ranking."""
+    pay_range = _hourly_compensation_range(job)
+    return sum(pay_range) / 2 if pay_range else None
 
 
 def assess_eligibility(job, candidate):
@@ -1400,12 +1448,41 @@ def _is_us_location(loc):
     s = (loc or "").strip()
     if not s:
         return True
-    # A terminal ISO country code is authoritative; do this before the US
-    # matcher because `CA` can mean either California or Canada.
-    if NON_US_COUNTRY_CODE_RE.search(s):
-        return False
+    country_code = NON_US_COUNTRY_CODE_RE.search(s)
+    if country_code:
+        prefix = s[:country_code.start()]
+        if not (US_LOC_RE.search(prefix) or US_STATE_RE.search(prefix)):
+            return False
     clearly_foreign = NON_US_RE.search(s)
-    return not (clearly_foreign and not US_LOC_RE.search(s))
+    has_us = US_LOC_RE.search(s) or US_STATE_RE.search(s)
+    return not (clearly_foreign and not has_us)
+
+
+def _is_us_job(job):
+    """Reject explicitly foreign-only jobs, including generic-location cards."""
+    location = job.get("location") or ""
+    if not _is_us_location(location):
+        return False
+
+    title = job.get("title") or ""
+    if NON_US_RE.search(title) and not (US_LOC_RE.search(title) or US_STATE_RE.search(title)):
+        return False
+
+    # Ignore Workday language prefixes such as /fr-CA/ and inspect the job slug.
+    url = job.get("url") or ""
+    slug = url.split("/job/", 1)[-1] if "/job/" in url else url.rsplit("/", 1)[-1]
+    if NON_US_RE.search(slug) and not (US_LOC_RE.search(slug) or re.search(r"\bUS[-_]", slug, re.I)):
+        return False
+
+    if not location.strip() or location.lower() in {"multiple locations", "various locations", "remote"}:
+        content = (job.get("content") or "")[:12000]
+        based = re.search(
+            r"(?:role|position|internship|job)\s+(?:is\s+)?(?:based|located)\s+in\s+([^.;\n]{2,100})",
+            content, re.I,
+        )
+        if based and not _is_us_location(based.group(1)):
+            return False
+    return True
 
 
 def write_top_picks(current):
@@ -1728,15 +1805,16 @@ def main():
         source_state_key = SOURCE_PREFIX + name.lower().strip()
         source_was_warm = source_state_key in seen
 
+        for j in jobs:
+            j.setdefault("company", name)
         relevant = [j for j in jobs if j.get("bypass_filters") or is_relevant(j, filters)]
         # US-only scope: drop clearly non-US roles from everything
         # downstream (email, TOP_PICKS, OPEN_ROLES). Keep bypass alerts as-is.
         us_relevant = [j for j in relevant
-                       if j.get("bypass_filters") or _is_us_location(j.get("location"))]
+                       if j.get("bypass_filters") or _is_us_job(j)]
         n_drop = len(relevant) - len(us_relevant)
         relevant = us_relevant
         for j in relevant:
-            j.setdefault("company", name)
             j["clearance"] = is_clearance(j, filters)
             score_job(j, ranking, candidate)
         n_clear = sum(1 for j in relevant if j["clearance"])

@@ -17,6 +17,8 @@ class WatcherPersonalizationTests(unittest.TestCase):
             ],
             "title_exclude": ["sales", "marketing", "help desk", "human resources"],
             "years": ["2027"],
+            "minimum_hourly_compensation": 30,
+            "compensation_exempt_companies": ["Google", "Apple", "Meta", "Netflix", "Amazon"],
             "reject_cycle_phrases": ["summer 2026", "spring 2026", "fall 2026"],
             "location_exclude": [],
         }
@@ -138,6 +140,26 @@ class WatcherPersonalizationTests(unittest.TestCase):
         job = {"title": "Software Intern 2027", "content": "This is an unpaid internship.", "location": ""}
         self.assertFalse(watcher.is_relevant(job, self.filters))
 
+    def test_explicit_pay_below_floor_is_rejected(self):
+        job = {"title": "Software Intern 2027", "content": "Pay is $24-$28 per hour.", "location": "Austin, TX"}
+        self.assertFalse(watcher.is_relevant(job, self.filters))
+
+    def test_unknown_pay_and_range_reaching_floor_are_retained(self):
+        unknown = {"title": "Firmware Intern 2027", "content": "", "location": "Boston, MA"}
+        ranged = {"title": "Firmware Intern 2027", "content": "Pay is $22 to $35 per hour.", "location": "Boston, MA"}
+        self.assertTrue(watcher.is_relevant(unknown, self.filters))
+        self.assertTrue(watcher.is_relevant(ranged, self.filters))
+
+    def test_faang_is_exempt_from_pay_floor(self):
+        job = {"title": "Software Intern 2027", "company": "Page: Google Careers (interns)", "content": "Pay is $25/hour.", "location": "Seattle, WA"}
+        self.assertTrue(watcher.is_relevant(job, self.filters))
+
+    def test_annual_salary_range_is_converted(self):
+        rtx = {"title": "Software Intern 2027", "content": "Salary range is 37,000 USD - 82,000 USD.", "location": "Dallas, TX"}
+        low = {"title": "Software Intern 2027", "content": "Salary range is 37,000 USD - 50,000 USD.", "location": "Dallas, TX"}
+        self.assertTrue(watcher.is_relevant(rtx, self.filters))
+        self.assertFalse(watcher.is_relevant(low, self.filters))
+
     def test_greenhouse_url_variants_share_a_canonical_key(self):
         one = {"id": "5148079007", "url": "https://boards.greenhouse.io/andurilindustries/jobs/5148079007?gh_jid=5148079007"}
         two = {"id": "5148079007", "url": "https://job-boards.greenhouse.io/andurilindustries/jobs/5148079007"}
@@ -151,7 +173,21 @@ class WatcherPersonalizationTests(unittest.TestCase):
 
     def test_foreign_iso_country_code_is_rejected(self):
         self.assertFalse(watcher._is_us_location("Abstatt, BW, de"))
+        self.assertFalse(watcher._is_us_location("Toronto, ON, CA"))
         self.assertTrue(watcher._is_us_location("Charleston, SC, us"))
+        self.assertTrue(watcher._is_us_location("New York, NY; London, UK"))
+
+    def test_foreign_title_is_rejected_despite_generic_location(self):
+        job = {"title": "Software Engineering Intern - India", "location": "Multiple Locations", "url": "https://example.com/1"}
+        self.assertFalse(watcher._is_us_job(job))
+
+    def test_foreign_description_is_rejected_when_location_missing(self):
+        job = {"title": "Software Engineering Intern", "location": "", "content": "This role is based in London, United Kingdom.", "url": "https://example.com/2"}
+        self.assertFalse(watcher._is_us_job(job))
+
+    def test_workday_locale_does_not_look_like_foreign_location(self):
+        job = {"title": "Software Engineering Intern", "location": "Austin, TX", "url": "https://example.wd5.myworkdayjobs.com/fr-CA/site/job/US-TX/Intern_R123"}
+        self.assertTrue(watcher._is_us_job(job))
 
     def test_digest_sources_are_classified_separately(self):
         self.assertTrue(watcher._is_digest_source({"name": "Competition: Example"}))
