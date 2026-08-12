@@ -1197,15 +1197,22 @@ def score_job(job, profile, candidate=None):
     elif job.get("role_family") in set(profile.get("strategic_role_families", [])):
         value_routes.append("HIGH-VALUE TECHNICAL STRETCH")
     trading_firms = [name.lower() for name in profile.get("trading_firms", [])]
-    if any(re.search(r"\b" + re.escape(name) + r"\b", company.lower())
-           for name in trading_firms):
+    trading_stretch = any(re.search(r"\b" + re.escape(name) + r"\b", company.lower())
+                          for name in trading_firms)
+    if trading_stretch:
         value_routes.append("TRADING-FIRM ENGINEERING — STRETCH")
+        readiness_penalty = int(profile.get("trading_readiness_penalty", 0))
+        score -= readiness_penalty
+        if readiness_penalty:
+            reasons.append(f"-{readiness_penalty} current interview-readiness adjustment")
     if not value_routes:
         value_routes.append("BALANCED UPGRADE CANDIDATE")
     reasons.insert(0, "Why included: " + " / ".join(value_routes))
 
     thresholds = profile.get("tier_thresholds", {})
-    if score >= int(thresholds.get("high_priority", 45)):
+    if trading_stretch:
+        tier = "QUANT ENGINEERING STRETCH"
+    elif score >= int(thresholds.get("high_priority", 45)):
         tier = "HIGH PRIORITY"
     elif score >= int(thresholds.get("good_match", 25)):
         tier = "GOOD MATCH"
@@ -1217,7 +1224,8 @@ def score_job(job, profile, candidate=None):
     for concern in eligibility["concerns"]:
         reasons.append(f"Eligibility check: {concern}")
     job.update({"score": score, "tier": tier, "reasons": reasons,
-                "value_routes": value_routes, "season": season,
+                "value_routes": value_routes, "trading_stretch": trading_stretch,
+                "season": season,
                 "eligibility": eligibility})
     return job
 
@@ -1277,7 +1285,8 @@ def build_email_html(grouped, baseline=False, filters=None, max_roles=None):
             j.setdefault("company", firm)
             all_jobs.append(j)
 
-    all_jobs.sort(key=lambda j: (-j.get("score", 0),
+    all_jobs.sort(key=lambda j: (bool(j.get("trading_stretch")),
+                                 -j.get("score", 0),
                                  (j.get("company") or "").lower(),
                                  (j.get("title") or "").lower()))
     total = len(all_jobs)
@@ -1289,7 +1298,8 @@ def build_email_html(grouped, baseline=False, filters=None, max_roles=None):
             f"{total - max_roles} matches are retained in the generated reports.</p>"
         )
 
-    tiers = {"HIGH PRIORITY": [], "GOOD MATCH": [], "POSSIBLE MATCH": []}
+    tiers = {"HIGH PRIORITY": [], "GOOD MATCH": [], "POSSIBLE MATCH": [],
+             "QUANT ENGINEERING STRETCH": []}
     for j in all_jobs:
         tiers.setdefault(j.get("tier", "POSSIBLE MATCH"), []).append(j)
 
@@ -1297,6 +1307,8 @@ def build_email_html(grouped, baseline=False, filters=None, max_roles=None):
         ("HIGH PRIORITY", "&#9889; HIGH PRIORITY", "#b42318", "Exceptional fit; review and apply quickly."),
         ("GOOD MATCH", "&#9989; GOOD MATCH", "#2f6f4f", "Clearly relevant and worth reviewing."),
         ("POSSIBLE MATCH", "POSSIBLE MATCH", "#777", "Potentially relevant; retained because coverage matters."),
+        ("QUANT ENGINEERING STRETCH", "QUANT-FIRM ENGINEERING — STRETCH", "#6b5b95",
+         "High upside, but currently lower priority because interview preparation is substantial."),
     ]
     for tier, header, color, sub in meta:
         jobs = _collapse_locations(tiers[tier])

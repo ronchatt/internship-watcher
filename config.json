@@ -296,6 +296,7 @@
       "Hudson River Trading", "Optiver", "IMC Trading", "DRW", "Five Rings",
       "Jane Street", "Jump Trading", "Old Mission", "Tower Research", "Virtu"
     ],
+    "trading_readiness_penalty": 10,
     "startup": {
       "base_bonus": 3,
       "strategic_domain_bonus": 4,

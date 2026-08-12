@@ -185,6 +185,25 @@ class WatcherPersonalizationTests(unittest.TestCase):
         scored = watcher.score_job(job, profile)
         self.assertIn("HIGH COMPENSATION", scored["value_routes"])
         self.assertIn("TRADING-FIRM ENGINEERING — STRETCH", scored["value_routes"])
+        self.assertEqual(scored["tier"], "QUANT ENGINEERING STRETCH")
+
+    def test_quant_does_not_crowd_nonquant_out_of_capped_email(self):
+        nonquant = {
+            "title": "Infrastructure Intern", "company": "Great Cloud Co",
+            "location": "Seattle, WA", "url": "https://example.com/nonquant",
+            "tier": "GOOD MATCH", "score": 35, "reasons": [],
+            "trading_stretch": False,
+        }
+        quant = [{
+            "title": f"Software Intern {i}", "company": "Quant: Jane Street",
+            "location": "New York, NY", "url": f"https://example.com/quant/{i}",
+            "tier": "QUANT ENGINEERING STRETCH", "score": 80 - i,
+            "reasons": [], "trading_stretch": True,
+        } for i in range(30)]
+        html = watcher.build_email_html({"mixed": quant + [nonquant]}, max_roles=25)
+        self.assertIn("https://example.com/nonquant", html)
+        self.assertIn("QUANT-FIRM ENGINEERING", html)
+        self.assertEqual(html.count("https://example.com/quant/"), 24)
 
     def test_annual_salary_range_is_converted(self):
         rtx = {"title": "Software Intern 2027", "content": "Salary range is 37,000 USD - 82,000 USD.", "location": "Dallas, TX"}
