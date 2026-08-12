@@ -113,9 +113,6 @@
       "sales & trading",
       "sales trading",
       "sales and trading",
-      "quant",
-      "trader",
-      "trading",
       "winter 2027",
       "fall 2027",
       "winter co-op",
@@ -176,11 +173,14 @@
     ],
     "minimum_hourly_compensation": 30,
     "compensation_exempt_companies": [
-      "Google",
-      "Apple",
-      "Meta",
-      "Netflix",
-      "Amazon"
+      "NVIDIA", "Apple", "Google", "Meta", "Microsoft", "Amazon",
+      "Netflix", "Tesla", "SpaceX", "Anduril", "Palantir", "Databricks",
+      "Snowflake", "Anthropic", "OpenAI", "AMD", "Qualcomm", "Arm",
+      "Intel", "Roblox", "Stripe", "Cloudflare", "Figma", "Ramp", "Sentry"
+    ],
+    "quant_role_exclude": [
+      "quantitative researcher", "quant research", "quantitative trader",
+      "quant trader", "trading intern", "trader intern", "research trader"
     ],
     "location_exclude": [],
     "clearance_keywords": [
@@ -231,17 +231,17 @@
       "technical_systems": 22
     },
     "role_profiles": {
-      "embedded_firmware": {"demonstrated_fit": 60, "strategic_value": 95},
-      "computer_architecture": {"demonstrated_fit": 35, "strategic_value": 100},
-      "digital_design": {"demonstrated_fit": 25, "strategic_value": 100},
-      "ai_ml": {"demonstrated_fit": 90, "strategic_value": 80},
-      "software": {"demonstrated_fit": 95, "strategic_value": 70},
+      "embedded_firmware": {"demonstrated_fit": 60, "strategic_value": 90},
+      "computer_architecture": {"demonstrated_fit": 35, "strategic_value": 95},
+      "digital_design": {"demonstrated_fit": 25, "strategic_value": 95},
+      "ai_ml": {"demonstrated_fit": 95, "strategic_value": 90},
+      "software": {"demonstrated_fit": 100, "strategic_value": 85},
       "robotics_autonomy": {"demonstrated_fit": 75, "strategic_value": 95},
       "controls": {"demonstrated_fit": 75, "strategic_value": 90},
       "hardware_software": {"demonstrated_fit": 70, "strategic_value": 95},
       "technical_consulting": {"demonstrated_fit": 85, "strategic_value": 85},
       "technical_systems": {"demonstrated_fit": 85, "strategic_value": 80},
-      "platform_infrastructure": {"demonstrated_fit": 95, "strategic_value": 75},
+      "platform_infrastructure": {"demonstrated_fit": 100, "strategic_value": 90},
       "security_engineering": {"demonstrated_fit": 85, "strategic_value": 75},
       "aerospace_flight_software": {"demonstrated_fit": 85, "strategic_value": 95}
     },
@@ -261,13 +261,41 @@
       "security_engineering": ["application security", "product security", "security engineering", "devsecops", "sast", "vulnerability", "secure software"],
       "aerospace_flight_software": ["flight software", "gnc", "guidance navigation", "adcs", "cubesat", "satellite", "spacecraft", "avionics", "hardware-in-the-loop"]
     },
-    "preferred_companies": [],
-    "preferred_company_bonus": 10,
-    "preferred_locations": [],
+    "preferred_companies": [
+      "NVIDIA", "Apple", "Google", "Meta", "Microsoft", "Amazon", "Netflix",
+      "Tesla", "SpaceX", "Anduril", "Palantir", "Databricks", "Snowflake",
+      "Anthropic", "OpenAI", "AMD", "Qualcomm", "Arm", "Intel", "Roblox",
+      "Stripe", "Cloudflare", "Figma", "Ramp", "Sentry"
+    ],
+    "preferred_company_bonus": 14,
+    "preferred_locations": [
+      "san francisco", "bay area", "palo alto", "mountain view", "sunnyvale",
+      "santa clara", "san jose", "seattle", "bellevue", "redmond", "new york",
+      "nyc", "boston", "cambridge", "austin", "los angeles", "el segundo",
+      "southern california", "atlanta"
+    ],
     "location_weights": {"preferred_hub": 5, "other_us": 0},
     "season_weights": {"summer_2027": 8, "spring_2027": 6, "ambiguous_2027": 3, "unknown": 0},
     "tier_thresholds": {"high_priority": 45, "good_match": 25},
-    "compensation_hourly_bonuses": {"30": 0, "35": 2, "40": 4, "50": 6, "60": 8},
+    "high_compensation_threshold": 45,
+    "compensation_hourly_bonuses": {"30": 0, "35": 2, "40": 5, "45": 10, "50": 14, "60": 20},
+    "ownership_bonus": 5,
+    "ownership_keywords": [
+      "own", "ownership", "design and build", "ship", "production",
+      "end-to-end", "founder", "small team", "deploy"
+    ],
+    "strategic_role_families": [
+      "software", "ai_ml", "platform_infrastructure", "security_engineering",
+      "embedded_firmware", "computer_architecture", "digital_design",
+      "robotics_autonomy", "aerospace_flight_software"
+    ],
+    "current_fit_role_families": [
+      "software", "ai_ml", "platform_infrastructure", "security_engineering"
+    ],
+    "trading_firms": [
+      "Hudson River Trading", "Optiver", "IMC Trading", "DRW", "Five Rings",
+      "Jane Street", "Jump Trading", "Old Mission", "Tower Research", "Virtu"
+    ],
     "startup": {
       "base_bonus": 3,
       "strategic_domain_bonus": 4,
@@ -283,6 +311,12 @@
   "source_policy": {
     "must_cover": ["Roblox", "Boeing", "Capital One"],
     "disabled_name_prefixes": ["Quant:", "Quant SPA:"],
+    "enabled_names": [
+      "Hudson River Trading", "Optiver (US)", "Optiver (Campus)", "IMC Trading",
+      "Quant: DRW", "Quant: Five Rings", "Quant: Jane Street",
+      "Quant: Jump Trading", "Quant: Old Mission", "Quant: Tower Research",
+      "Quant: Virtu"
+    ],
     "disabled_names": [
       "Aquatic Capital", "Tudor Investment Group", "Blackedge Capital",
       "Akuna Capital", "Hudson River Trading", "Optiver (US)",

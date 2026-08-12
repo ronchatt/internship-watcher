@@ -1,6 +1,7 @@
 import sys
 import types
 import unittest
+import json
 
 sys.modules.setdefault("requests", types.SimpleNamespace())
 import watcher
@@ -153,6 +154,37 @@ class WatcherPersonalizationTests(unittest.TestCase):
     def test_faang_is_exempt_from_pay_floor(self):
         job = {"title": "Software Intern 2027", "company": "Page: Google Careers (interns)", "content": "Pay is $25/hour.", "location": "Seattle, WA"}
         self.assertTrue(watcher.is_relevant(job, self.filters))
+
+    def test_elite_engineering_company_and_startup_bypass_pay_floor(self):
+        filters = dict(self.filters)
+        filters["compensation_exempt_companies"] = ["SpaceX"]
+        spacex = {"title": "Software Intern 2027", "company": "SpaceX", "content": "Pay is $25/hour.", "location": "CA"}
+        startup = {"title": "Software Backend Intern 2027", "company": "Tiny AI", "startup": True, "content": "Pay is $25/hour.", "location": "NY"}
+        self.assertTrue(watcher.is_relevant(spacex, filters))
+        self.assertTrue(watcher.is_relevant(startup, filters))
+
+    def test_trading_firm_engineering_stays_but_pure_quant_drops(self):
+        filters = dict(self.filters)
+        filters["quant_role_exclude"] = ["quantitative researcher", "quantitative trader"]
+        engineer = {"title": "Software Engineering Intern 2027", "company": "Quant: Jane Street", "content": "Infrastructure systems", "location": "New York, NY"}
+        researcher = {"title": "Quantitative Researcher Intern 2027", "company": "Quant: Jane Street", "content": "", "location": "New York, NY"}
+        self.assertTrue(watcher.is_relevant(engineer, filters))
+        self.assertFalse(watcher.is_relevant(researcher, filters))
+
+    def test_actual_strategy_prioritizes_software_over_hardware(self):
+        with open("config.json", encoding="utf-8") as handle:
+            profile = json.load(handle)["ranking"]
+        software = watcher.score_job({"title": "Software Engineering Intern", "content": "", "location": ""}, profile)
+        hardware = watcher.score_job({"title": "ASIC Design Intern", "content": "", "location": ""}, profile)
+        self.assertGreater(software["score"], hardware["score"])
+
+    def test_value_routes_explain_brand_pay_and_trading_stretch(self):
+        with open("config.json", encoding="utf-8") as handle:
+            profile = json.load(handle)["ranking"]
+        job = {"title": "Software Engineering Intern", "company": "Quant: Jane Street", "content": "Pay is $60/hour.", "location": "New York, NY"}
+        scored = watcher.score_job(job, profile)
+        self.assertIn("HIGH COMPENSATION", scored["value_routes"])
+        self.assertIn("TRADING-FIRM ENGINEERING — STRETCH", scored["value_routes"])
 
     def test_annual_salary_range_is_converted(self):
         rtx = {"title": "Software Intern 2027", "content": "Salary range is 37,000 USD - 82,000 USD.", "location": "Dallas, TX"}

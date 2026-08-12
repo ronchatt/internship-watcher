@@ -834,11 +834,17 @@ def is_relevant(job, filters):
     minimum_pay = filters.get("minimum_hourly_compensation")
     pay_range = _hourly_compensation_range(job)
     company = (job.get("company") or "").strip().lower()
-    exempt = any(re.search(r"\b" + re.escape(c.lower()) + r"\b", company)
+    exempt = job.get("startup") or any(re.search(r"\b" + re.escape(c.lower()) + r"\b", company)
                  for c in filters.get("compensation_exempt_companies", []))
     if minimum_pay is not None and pay_range and not exempt:
         if pay_range[1] < float(minimum_pay):
             return _drop("below-minimum-pay", title)
+
+    # Trading firms are useful only as a selective engineering stretch lane.
+    # Researcher/trader internships remain out of scope, while software,
+    # infrastructure, systems, and FPGA roles at the same firms can qualify.
+    if any(phrase.lower() in title for phrase in filters.get("quant_role_exclude", [])):
+        return _drop("pure-quant-role", title)
 
     # 2) must be in a domain you care about. Prefer title evidence, but retain a
     #    generic internship title when its description clearly establishes fit.
@@ -1127,10 +1133,12 @@ def score_job(job, profile, candidate=None):
         job["role_family"] = "other_technical"
 
     preferred = [c.lower() for c in profile.get("preferred_companies", [])]
-    if any(c in company.lower() for c in preferred):
+    elite_company = next((c for c in preferred
+                          if re.search(r"\b" + re.escape(c) + r"\b", company.lower())), None)
+    if elite_company:
         bonus = int(profile.get("preferred_company_bonus", 0))
         score += bonus
-        reasons.append(f"+{bonus} priority company")
+        reasons.append(f"+{bonus} elite/strategic company")
 
     if job.get("startup"):
         startup_cfg = profile.get("startup", {})
@@ -1143,6 +1151,14 @@ def score_job(job, profile, candidate=None):
             score += domain_bonus
             if domain_bonus:
                 reasons.append(f"+{domain_bonus} strategic startup domain")
+
+    ownership_terms = profile.get("ownership_keywords", [])
+    ownership_hits = [term for term in ownership_terms if _has_term(hay, term)]
+    if ownership_hits:
+        ownership_bonus = int(profile.get("ownership_bonus", 0))
+        score += ownership_bonus
+        if ownership_bonus:
+            reasons.append(f"+{ownership_bonus} ownership/production-work signal")
 
     season = classify_season(job)
     season_bonus = int(profile.get("season_weights", {}).get(season, 0))
@@ -1157,6 +1173,7 @@ def score_job(job, profile, candidate=None):
         reasons.append(f"+{loc_bonus} preferred engineering hub")
 
     hourly = _hourly_compensation(job)
+    pay_range = _hourly_compensation_range(job)
     if hourly is not None:
         bonus = 0
         for threshold, points in sorted(
@@ -1166,6 +1183,26 @@ def score_job(job, profile, candidate=None):
         score += bonus
         job["hourly_compensation"] = hourly
         reasons.append(f"+{bonus} listed compensation (~${hourly:.2f}/hr)")
+
+    value_routes = []
+    if elite_company:
+        value_routes.append("ELITE COMPANY")
+    if pay_range and pay_range[1] >= float(profile.get("high_compensation_threshold", 45)):
+        value_routes.append("HIGH COMPENSATION")
+    if job.get("startup") and (ownership_hits or job.get("role_family") in
+                               set(profile.get("strategic_role_families", []))):
+        value_routes.append("HIGH-UPSIDE STARTUP")
+    if job.get("role_family") in set(profile.get("current_fit_role_families", [])):
+        value_routes.append("STRONG CURRENT FIT")
+    elif job.get("role_family") in set(profile.get("strategic_role_families", [])):
+        value_routes.append("HIGH-VALUE TECHNICAL STRETCH")
+    trading_firms = [name.lower() for name in profile.get("trading_firms", [])]
+    if any(re.search(r"\b" + re.escape(name) + r"\b", company.lower())
+           for name in trading_firms):
+        value_routes.append("TRADING-FIRM ENGINEERING — STRETCH")
+    if not value_routes:
+        value_routes.append("BALANCED UPGRADE CANDIDATE")
+    reasons.insert(0, "Why included: " + " / ".join(value_routes))
 
     thresholds = profile.get("tier_thresholds", {})
     if score >= int(thresholds.get("high_priority", 45)):
@@ -1179,7 +1216,8 @@ def score_job(job, profile, candidate=None):
         reasons.append(f"Eligibility: {note}")
     for concern in eligibility["concerns"]:
         reasons.append(f"Eligibility check: {concern}")
-    job.update({"score": score, "tier": tier, "reasons": reasons, "season": season,
+    job.update({"score": score, "tier": tier, "reasons": reasons,
+                "value_routes": value_routes, "season": season,
                 "eligibility": eligibility})
     return job
 
@@ -1738,6 +1776,7 @@ def main():
     candidate = config.get("profile", {})
     source_policy = config.get("source_policy", {})
     disabled_names = set(source_policy.get("disabled_names", []))
+    enabled_names = set(source_policy.get("enabled_names", []))
     disabled_prefixes = tuple(source_policy.get("disabled_name_prefixes", []))
     # Normalize legacy/locale-variant URLs before comparing this sweep so a
     # different ATS presentation cannot masquerade as a newly opened role.
@@ -1769,7 +1808,7 @@ def main():
         if _is_digest_source(firm):
             continue
         name = firm.get("name", "?")
-        if name in disabled_names or name.startswith(disabled_prefixes):
+        if name not in enabled_names and (name in disabled_names or name.startswith(disabled_prefixes)):
             continue
         if time.time() - started > run_budget:
             print("  ! run budget hit -- skipping remaining sources this run")
