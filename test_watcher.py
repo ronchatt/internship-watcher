@@ -222,6 +222,71 @@ class WatcherPersonalizationTests(unittest.TestCase):
         self.assertEqual(watcher.canonical_job_key("Example", en), watcher.canonical_job_key("Example", fr))
         self.assertEqual(watcher.canonical_job_key("Example", en), "workday:example.wd5.myworkdayjobs.com:r015667")
 
+    def test_generic_samsung_workday_program_uses_description(self):
+        listing = types.SimpleNamespace(
+            raise_for_status=lambda: None,
+            json=lambda: {
+                "total": 1,
+                "jobPostings": [{
+                    "title": "2027 Summer Internship",
+                    "locationsText": "1530 FM 973 Taylor, TX, USA",
+                    "externalPath": "/job/1530-FM-973-Taylor-TX-USA/XMLNAME-2027-Summer-Internship_R119158",
+                }],
+            },
+        )
+        detail = types.SimpleNamespace(
+            raise_for_status=lambda: None,
+            json=lambda: {"jobPostingInfo": {
+                "location": "1530 FM 973 Taylor, TX, USA",
+                "jobDescription": (
+                    "<p>Engineering students work on real-world semiconductor hardware "
+                    "projects. Majors include Computer Science and Computer Engineering.</p>"
+                ),
+            }},
+        )
+        old_post = getattr(watcher.requests, "post", None)
+        old_get = getattr(watcher.requests, "get", None)
+        watcher.requests.post = lambda *args, **kwargs: listing
+        watcher.requests.get = lambda *args, **kwargs: detail
+        try:
+            jobs = watcher.fetch_workday({
+                "name": "Samsung Austin Semiconductor",
+                "host": "sec.wd3.myworkdayjobs.com",
+                "tenant": "sec",
+                "site": "Samsung_Careers",
+                "locale": "en-US",
+                "search_text": "intern",
+            })
+        finally:
+            if old_post is None:
+                del watcher.requests.post
+            else:
+                watcher.requests.post = old_post
+            if old_get is None:
+                del watcher.requests.get
+            else:
+                watcher.requests.get = old_get
+
+        self.assertEqual(len(jobs), 1)
+        self.assertTrue(jobs[0]["broad_program"])
+        self.assertIn("computer engineering", jobs[0]["content"].lower())
+        jobs[0]["company"] = "Samsung Austin Semiconductor"
+        self.assertTrue(watcher.is_relevant(jobs[0], self.filters))
+
+    def test_generic_program_is_labeled_as_uncertain_not_exact_fit(self):
+        with open("config.json", encoding="utf-8") as handle:
+            profile = json.load(handle)["ranking"]
+        job = {
+            "title": "2027 Summer Internship",
+            "company": "Samsung Austin Semiconductor",
+            "content": "Computer engineering students work on semiconductor hardware projects.",
+            "location": "Taylor, TX, USA",
+            "broad_program": True,
+        }
+        scored = watcher.score_job(job, profile)
+        self.assertIn("BROAD TECHNICAL PROGRAM", scored["value_routes"])
+        self.assertTrue(any("exact team/assignment unknown" in reason for reason in scored["reasons"]))
+
     def test_foreign_iso_country_code_is_rejected(self):
         self.assertFalse(watcher._is_us_location("Abstatt, BW, de"))
         self.assertFalse(watcher._is_us_location("Toronto, ON, CA"))

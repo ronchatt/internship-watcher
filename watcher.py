@@ -123,6 +123,29 @@ def fetch_lever(firm):
     return out
 
 
+def _is_generic_internship_title(title):
+    """True when a title establishes an internship but not its technical area."""
+    normalized = re.sub(r"\b20\d{2}\b", " ", title or "", flags=re.I)
+    normalized = re.sub(r"\b(?:spring|summer|fall|winter)\b", " ", normalized, flags=re.I)
+    normalized = re.sub(r"[^a-z]+", " ", normalized.lower()).strip()
+    return bool(re.fullmatch(
+        r"(?:(?:university|college|student|engineering|technical)\s+)?"
+        r"(?:intern|internship|co op)(?:\s+(?:program|programme|opportunities))?",
+        normalized,
+    ))
+
+
+def _workday_job_description(host, tenant, site, path):
+    """Read one public Workday detail record and reduce its HTML description."""
+    detail_url = f"https://{host}/wday/cxs/{tenant}/{site}{path}"
+    r = requests.get(detail_url, headers=HEADERS, timeout=TIMEOUT)
+    r.raise_for_status()
+    info = r.json().get("jobPostingInfo", {}) or {}
+    raw = info.get("jobDescription", "") or ""
+    content = re.sub(r"\s+", " ", unescape(re.sub(r"(?s)<[^>]+>", " ", raw))).strip()
+    return content, info.get("location", "") or ""
+
+
 def fetch_workday(firm):
     """
     Poll a Workday tenant's public CXS feed.
@@ -141,6 +164,8 @@ def fetch_workday(firm):
     offset, limit = 0, 20
     total = None
     max_pages = int(firm.get("max_pages", 25))
+    hydrated = 0
+    max_hydrated = int(firm.get("max_hydrated_descriptions", 25))
     for _ in range(max_pages):
         r = requests.post(
             api,
@@ -157,12 +182,25 @@ def fetch_workday(firm):
         for p in postings:
             path = p.get("externalPath", "") or ""
             link = f"https://{host}/{locale}/{site}{path}" if path else f"https://{host}/{locale}/{site}"
+            title = p.get("title", "") or ""
+            location = p.get("locationsText", "") or ""
+            content = ""
+            broad_program = _is_generic_internship_title(title)
+            if path and broad_program and hydrated < max_hydrated:
+                try:
+                    content, detail_location = _workday_job_description(
+                        host, tenant, site, path)
+                    location = detail_location or location
+                    hydrated += 1
+                except Exception as e:  # noqa: BLE001 -- one detail must not kill a board
+                    print(f"    {firm.get('name', host)} detail skipped: {e}")
             out.append({
                 "id": path or (p.get("title", "") or ""),
-                "title": p.get("title", "") or "",
-                "location": p.get("locationsText", "") or "",
+                "title": title,
+                "location": location,
                 "url": link,
-                "content": "",  # listing has no description; year must be in title
+                "content": content,
+                "broad_program": broad_program,
             })
         offset += limit
         if not postings or (total is not None and offset >= total):
@@ -1152,6 +1190,12 @@ def score_job(job, profile, candidate=None):
             if domain_bonus:
                 reasons.append(f"+{domain_bonus} strategic startup domain")
 
+    if job.get("broad_program"):
+        broad_penalty = int(profile.get("broad_program_uncertainty_penalty", 0))
+        score -= broad_penalty
+        reasons.append(
+            f"-{broad_penalty} broad technical program; exact team/assignment unknown")
+
     ownership_terms = profile.get("ownership_keywords", [])
     ownership_hits = [term for term in ownership_terms if _has_term(hay, term)]
     if ownership_hits:
@@ -1192,7 +1236,9 @@ def score_job(job, profile, candidate=None):
     if job.get("startup") and (ownership_hits or job.get("role_family") in
                                set(profile.get("strategic_role_families", []))):
         value_routes.append("HIGH-UPSIDE STARTUP")
-    if job.get("role_family") in set(profile.get("current_fit_role_families", [])):
+    if job.get("broad_program"):
+        value_routes.append("BROAD TECHNICAL PROGRAM")
+    elif job.get("role_family") in set(profile.get("current_fit_role_families", [])):
         value_routes.append("STRONG CURRENT FIT")
     elif job.get("role_family") in set(profile.get("strategic_role_families", [])):
         value_routes.append("HIGH-VALUE TECHNICAL STRETCH")
