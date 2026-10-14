@@ -86,8 +86,9 @@ the existing technical relevance and US-location filters: SWE, AI/ML, hardware,
 embedded, robotics, architecture, aerospace, and technical consulting retain the
 same preferences. Summer 2027 ranks above Spring 2027; private overlays still apply.
 The existing speedyapply and vanshb03 feeds remain complementary sources.
-Simplify application links also feed ATS board autodiscovery, alongside direct
-company monitoring.
+Existing ATS board autodiscovery and direct company monitoring remain enabled.
+Simplify has its own source baseline; its rows are not added to the already-warm
+autodiscovery feed, avoiding historical alerts through that alternate path.
 
 Only application-column link targets are used, preferring employer/ATS links over
 Simplify links. Image URLs and company homepages are excluded. Direct ATS records

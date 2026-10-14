@@ -742,7 +742,6 @@
       "name": "AUTO-DISCOVER (all boards found in trackers)",
       "ats": "autodiscover",
       "sources": [
-        "https://raw.githubusercontent.com/SimplifyJobs/Summer2027-Internships/dev/README.md",
         "https://raw.githubusercontent.com/vanshb03/Summer2027-Internships/dev/.github/scripts/listings.json",
         "https://raw.githubusercontent.com/speedyapply/2027-SWE-College-Jobs/main/README.md",
         "https://raw.githubusercontent.com/speedyapply/2027-SWE-College-Jobs/main/INTERN_INTL.md"
