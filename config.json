@@ -312,7 +312,7 @@
     "max_lower_tier_roles_per_sweep": 25
   },
   "source_policy": {
-    "must_cover": ["Roblox", "Boeing", "Capital One"],
+    "must_cover": ["Roblox", "Boeing", "Capital One", "Tracker: Simplify Summer2027"],
     "disabled_name_prefixes": ["Quant:", "Quant SPA:"],
     "enabled_names": [
       "Hudson River Trading", "Optiver (US)", "Optiver (Campus)", "IMC Trading",
@@ -330,6 +330,15 @@
     ]
   },
   "firms": [
+    {
+      "name": "Tracker: Simplify Summer2027",
+      "ats": "github_md",
+      "url": "https://raw.githubusercontent.com/SimplifyJobs/Summer2027-Internships/dev/README.md",
+      "cycle_year": "2027",
+      "season": "Summer",
+      "critical": true,
+      "health_min_jobs": 1
+    },
     {
       "name": "Roblox",
       "ats": "roblox",

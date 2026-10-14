@@ -77,6 +77,48 @@ python -m unittest -v
 
 The scheduled workflow runs the same suite before every production sweep.
 
+## GitHub internship repositories
+
+The SimplifyJobs/Pitt CSC Summer2027 `dev/README.md` is a required source.
+Its HTML tables and older Markdown tables are supported, including continuation
+company rows, multiple locations, and application buttons. All categories enter
+the existing technical relevance and US-location filters: SWE, AI/ML, hardware,
+embedded, robotics, architecture, aerospace, and technical consulting retain the
+same preferences. Summer 2027 ranks above Spring 2027; private overlays still apply.
+The existing speedyapply and vanshb03 feeds remain complementary sources.
+Existing ATS board autodiscovery and direct company monitoring remain enabled.
+Simplify has its own source baseline; its rows are not added to the already-warm
+autodiscovery feed, avoiding historical alerts through that alternate path.
+
+Only application-column link targets are used, preferring employer/ATS links over
+Simplify links. Image URLs and company homepages are excluded. Direct ATS records
+are processed before repository records. Stable Greenhouse, Lever, Workday, and
+Ashby identifiers and tracking-parameter normalization deduplicate application
+URLs. Company/title/location signatures suppress duplicate discoveries across
+different URLs, both within a sweep and across subsequent sweeps. Those signatures
+can merge separate requisitions with identical titles and locations; old state
+without signatures gains them as jobs are observed again.
+
+Closed/inactive JSON entries and README application cells marked closed or 🔒 are
+excluded. Disappearing listings leave open-role reports after a healthy sweep,
+but their notification history remains. Reopening the same role does not alert
+again. A repository's closed marker does not override an open official ATS record.
+Repository status may lag the employer, and links are not individually checked
+for availability. If only a Simplify link exists, it remains a fallback.
+
+Each newly enabled source silently records its first successful sync, even when
+other sources already have history. Subsequent unseen matches can alert. Preserve
+the Actions state cache to preserve this behavior; clearing state starts a fresh
+silent baseline. Baseline email for a completely fresh installation remains opt-in.
+
+Logs show parsed, closed, and actionable row counts. Missing tables, broken
+application structures, HTTP errors, and invalid JSON schemas fail visibly and do
+not warm the source. Simplify is included in must-cover diagnostics; failure or
+an unexpectedly empty result preserves the previous reports while healthy sources
+continue tracking and alerting. Inspect the Actions summary and source logs for
+failures. Offline tests cover both table formats, link selection, closed entries,
+state baselining, duplicate history, and degraded sweeps.
+
 ## Design choices
 
 - A dead source should be visible but should not prevent healthy sources from producing results.
