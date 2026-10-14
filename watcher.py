@@ -6,7 +6,7 @@ Polls Greenhouse + Lever + Workday job boards for a configurable list of firms,
 remembers every relevant posting it has already seen, and emails you the moment
 a NEW relevant internship appears.
 
-- First run  -> emails a "baseline" of everything currently open, then remembers it.
+- First run  -> silently remembers open roles (baseline email is opt-in).
 - Later runs -> email ONLY postings that weren't there last time.
 
 Public source configuration lives in config.json. Personal preferences can be
@@ -24,7 +24,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from html import escape, unescape
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlsplit, urlunsplit, parse_qsl, urlencode
 
 import requests
 
@@ -223,16 +223,23 @@ def fetch_github_json(firm):
     r = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
     r.raise_for_status()
     out = []
-    for j in r.json():
+    data = r.json()
+    if not isinstance(data, list):
+        raise ValueError("tracker JSON must be a listings array")
+    for j in data:
         if not isinstance(j, dict):
             continue
-        if j.get("active") is False or j.get("is_visible") is False:
+        if j.get("active") is False or j.get("is_visible") is False or str(j.get("status", "")).lower() in ("closed", "inactive"):
             continue
         title = (j.get("title") or "").strip()
         company = (j.get("company_name") or j.get("company") or "").strip()
         locs = j.get("locations") or j.get("location") or []
         location = ", ".join(str(x) for x in locs) if isinstance(locs, list) else str(locs)
-        link = j.get("url") or j.get("application_link") or ""
+        links = [j.get(k) for k in ("application_link", "url") if j.get(k)]
+        link = next((u for u in links if 'simplify.jobs' not in (urlsplit(u).hostname or '')),
+                    links[0] if links else '')
+        if not title or not company or not link.startswith(("https://", "http://")):
+            continue
         jid = str(j.get("id") or link or f"{company}|{title}")
         terms = j.get("terms") or []
         season_text = ((" ".join(terms) if isinstance(terms, list) else str(terms))
@@ -410,6 +417,12 @@ def fetch_amazon(firm):
 
 
 def fetch_github_md(firm):
+    r = requests.get(firm["url"], headers=HEADERS, timeout=TIMEOUT)
+    r.raise_for_status()
+    return parse_github_table(r.text, firm)
+
+
+def parse_github_table(text, firm):
     """
     Parse a tracker repo whose data lives in a markdown TABLE (not listings.json).
     Handles both common shapes:
@@ -418,43 +431,69 @@ def fetch_github_md(firm):
     Config: url (raw README). Optional: cycle_year (injected so year-less titles
     still pass the year filter, since the whole repo is one cycle).
     """
-    r = requests.get(firm["url"], headers=HEADERS, timeout=TIMEOUT)
-    r.raise_for_status()
     cycle_year = str(firm.get("cycle_year", ""))
 
     def clean(cell):
         cell = re.sub(r"<[^>]+>", " ", cell)                 # strip html tags
         cell = re.sub(r"!?\[([^\]]*)\]\([^)]*\)", r"\1", cell)  # md links -> text
         cell = re.sub(r"[*`|]", " ", cell)
-        return re.sub(r"\s+", " ", cell).strip()
+        return re.sub(r"\s+", " ", unescape(cell)).strip()
 
     out, last_company = [], ""
-    for line in r.text.splitlines():
+    rows = []
+    for table in re.findall(r"(?is)<table\b[^>]*>(.*?)</table>", text):
+        rows.append(None)
+        for row in re.findall(r"(?is)<tr\b[^>]*>(.*?)</tr>", table):
+            cells = re.findall(r"(?is)<t[dh]\b[^>]*>(.*?)</t[dh]>", row)
+            if cells:
+                rows.append(cells)
+    for line in text.splitlines():
         line = line.strip()
+        if line.startswith("#"):
+            rows.append(None)
         if not line.startswith("|") or line.count("|") < 4:
             continue
         if re.match(r"^\|[\s\-:|]+\|$", line):               # separator row
             continue
         cells = [c for c in line.strip("|").split("|")]
+        rows.append(cells)
+    parsed = closed = 0
+    application_index = 3
+    for cells in rows:
+        if cells is None:
+            last_company = ""
+            application_index = 3
+            continue
         if len(cells) < 3:
             continue
 
         company = clean(cells[0])
         title = clean(cells[1])
         location = clean(cells[2]) if len(cells) > 2 else ""
-        if not title or company.lower() in ("company",) or title.lower() in ("position", "role"):
+        if company.lower() == "company":
+            application_index = next((i for i, c in enumerate(cells)
+                                      if re.search(r"apply|application|link", clean(c), re.I)), 3)
+            continue
+        if not title or title.lower() in ("position", "role"):
             continue                                          # header row
         if company in ("↳", "->", "") and last_company:       # "same as above" marker
             company = last_company
         last_company = company or last_company
+        parsed += 1
+        application = cells[application_index] if len(cells) > application_index else ""
+        if "🔒" in application or re.search(r"\b(closed|inactive)\b", clean(application), re.I):
+            closed += 1
+            continue
 
-        # apply link = a URL from the later cells (cell 0 is the company homepage)
-        urls = []
-        for c in cells[1:]:
-            urls += re.findall(r"https?://[^\s\"')<>]+", c)
+        # Application column only; cell 0 is the company homepage.
+        urls = re.findall(r'''href\s*=\s*["'](https?://[^"']+)["']''', application, re.I)
+        urls += re.findall(r"\]\((https?://[^\s)]+)\)", application)
         if not urls:
             continue
-        link = urls[0].rstrip(").,")
+        # Anchor targets only: image badges and company homepages are not applications.
+        urls = [unescape(u) for u in urls]
+        link = next((u for u in urls if (urlsplit(u).hostname or '') != 'simplify.jobs'
+                     and not (urlsplit(u).hostname or '').endswith('.simplify.jobs')), urls[0])
 
         out.append({
             "id": link,
@@ -463,8 +502,11 @@ def fetch_github_md(firm):
             "location": location,
             "url": link,
             "content": "",
-            "year_text": f"{title} {cycle_year}",
+            "year_text": f"{title} {firm.get('season', '')} {cycle_year}",
         })
+    print(f"    tracker: {parsed} rows parsed, {closed} closed, {len(out)} actionable")
+    if parsed == 0 or (parsed > closed and not out):
+        raise ValueError("tracker table schema missing or no listing rows; source not baselined")
     return out
 
 
@@ -970,6 +1012,11 @@ def classify_season(job):
     return "unknown"
 
 
+def job_signature(job):
+    return "|".join(re.sub(r"\s+", " ", str(job.get(k) or "")).lower().strip()
+                    for k in ("company", "title", "location"))
+
+
 def canonical_job_key(source_name, job):
     """Normalize equivalent ATS URLs so direct and discovered feeds deduplicate."""
     url = (job.get("url") or "").strip().lower()
@@ -979,6 +1026,9 @@ def canonical_job_key(source_name, job):
     lever_id = re.search(r"jobs\.lever\.co/[^/]+/([a-f0-9-]{20,})", url)
     if lever_id:
         return f"lever:{lever_id.group(1)}"
+    ashby_id = re.search(r"jobs\.ashbyhq\.com/([^/]+)/([a-f0-9-]{20,})", url)
+    if ashby_id:
+        return f"ashby:{ashby_id.group(1)}:{ashby_id.group(2)}"
     # Workday commonly exposes the same requisition through en-US/fr-CA and
     # public/private site variants. The requisition suffix is the stable part.
     if "myworkdayjobs.com" in url:
@@ -990,7 +1040,12 @@ def canonical_job_key(source_name, job):
             host = workday_host.group(1).lower()
             req = workday_id.group(1).lower().replace("-", "")
             return f"workday:{host}:{req}"
-    return url or f"{source_name}:{job['id']}"
+    if url:
+        parts = urlsplit(url)
+        query = [(k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True)
+                 if not k.startswith('utm_') and k not in ('ref', 'source')]
+        return urlunsplit((parts.scheme, parts.netloc, parts.path.rstrip('/'), urlencode(sorted(query)), ''))
+    return f"{source_name}:{job['id']}"
 
 
 def canonicalize_seen_state(seen):
@@ -1876,6 +1931,8 @@ def main():
     current = {}        # key -> job (everything relevant right now)
     grouped_new = {}    # firm -> [jobs] (relevant AND not seen before)
     sigs_this_run = set()  # company|title|location, for cross-source dedup
+    seen_signatures = {r.get("signature") for r in seen.values() if isinstance(r, dict)} - {None}
+    observed_keys = {}
     warmed_sources = set()
 
     # Hard ceiling on the whole sweep. If we blow through it, stop polling and
@@ -1890,7 +1947,9 @@ def main():
     must_cover = set(source_policy.get("must_cover", []))
     must_cover_status = {name: "not attempted" for name in must_cover}
 
-    for firm in config.get("firms", []):
+    # Direct ATS records have richer descriptions and authoritative URLs.
+    for firm in sorted(config.get("firms", []),
+                       key=lambda f: f.get("ats") in ("github_md", "github_json")):
         if not firm.get("enabled", True):
             continue
         # Competitions, scholarships, events, and programs belong only in the
@@ -1931,6 +1990,7 @@ def main():
                 print(f"  x source health check failed: {message}")
                 critical_failures.append(message)
                 must_cover_status[name] = f"unhealthy ({len(jobs)} raw jobs)"
+                continue
         source_state_key = SOURCE_PREFIX + name.lower().strip()
         source_was_warm = source_state_key in seen
 
@@ -1959,28 +2019,27 @@ def main():
             if j.get("pagewatch"):
                 gkey = _pw_key(url, j["id"])
             # secondary dedup: same company+title+location from a different URL
-            sig = "|".join([
-                (j.get("company") or name).lower().strip(),
-                (j.get("title") or "").lower().strip(),
-                (j.get("location") or "").lower().strip(),
-            ])
+            sig = job_signature(j)
+            observed_keys[gkey] = {"title": j["title"], "url": j.get("url", ""), "signature": sig}
             if gkey in current or (not j.get("bypass_filters") and sig in sigs_this_run):
                 continue
             sigs_this_run.add(sig)
             current[gkey] = {"src": name, "job": j}
             # Pagewatch detects a changed landing page, not an actual job. Keep
             # its state/report signal but never present it as a newly opened role.
-            if gkey not in seen and source_was_warm and not j.get("pagewatch"):
+            if gkey not in seen and sig not in seen_signatures and source_was_warm and not j.get("pagewatch"):
                 grouped_new.setdefault(name, []).append(j)
         warmed_sources.add(source_state_key)
         time.sleep(0.3)  # be polite between firms
 
     # Remember everything currently relevant (merge so closed roles stay "seen")
     new_seen = dict(seen)
+    new_seen.update(observed_keys)
     for source_state_key in warmed_sources:
         new_seen[source_state_key] = {"warmed": True}
     for gkey, rec in current.items():
-        new_seen[gkey] = {"title": rec["job"]["title"], "url": rec["job"].get("url", "")}
+        new_seen[gkey] = {"title": rec["job"]["title"], "url": rec["job"].get("url", ""),
+                          "signature": job_signature(rec["job"])}
 
     if first_run:
         grouped = {}
@@ -2052,6 +2111,8 @@ def main():
         summary += "\n### Must-cover source health\n\n" + "".join(
             f"- {name}: {status}\n" for name, status in sorted(must_cover_status.items())
         )
+    if failed_sources:
+        summary += "\n### Failed sources\n\n" + "".join(f"- {name}\n" for name in failed_sources)
     print(summary)
     summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
     if summary_path:
